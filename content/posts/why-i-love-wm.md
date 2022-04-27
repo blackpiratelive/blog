@@ -1,7 +1,7 @@
 ---
 title: "Why I Love Wm"
 date: 2022-03-30T20:13:52+05:30
-tags: [linux, wm]
+tags: [linux]
 ---
 
 WM stands for window manager. It is a alternative to using full blown desktop environment. [More info on ArchWiki](https://wiki.archlinux.org/title/window_manager)
