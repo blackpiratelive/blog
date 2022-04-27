@@ -2,20 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://example.org/posts/digital-journaling-is-better-than-physical-journaling/</loc>
-    <lastmod>2022-04-27T20:18:34+05:30</lastmod>
+    <loc>https://blog.blackpiratex.com/</loc>
+    <lastmod>2022-04-23T20:18:34+05:30</lastmod>
   </url><url>
-    <loc>http://example.org/</loc>
-    <lastmod>2022-04-27T20:18:34+05:30</lastmod>
+    <loc>https://blog.blackpiratex.com/posts/digital-journaling-is-better-than-physical-journaling/</loc>
+    <lastmod>2022-04-23T20:18:34+05:30</lastmod>
   </url><url>
-    <loc>http://example.org/posts/</loc>
-    <lastmod>2022-04-27T20:18:34+05:30</lastmod>
+    <loc>https://blog.blackpiratex.com/posts/</loc>
+    <lastmod>2022-04-23T20:18:34+05:30</lastmod>
   </url><url>
-    <loc>http://example.org/posts/why-i-love-wm/</loc>
-    <lastmod>2022-04-27T20:13:52+05:30</lastmod>
+    <loc>https://blog.blackpiratex.com/tags/linux/</loc>
+    <lastmod>2022-03-30T20:13:52+05:30</lastmod>
   </url><url>
-    <loc>http://example.org/categories/</loc>
+    <loc>https://blog.blackpiratex.com/tags/</loc>
+    <lastmod>2022-03-30T20:13:52+05:30</lastmod>
   </url><url>
-    <loc>http://example.org/tags/</loc>
+    <loc>https://blog.blackpiratex.com/posts/why-i-love-wm/</loc>
+    <lastmod>2022-03-30T20:13:52+05:30</lastmod>
+  </url><url>
+    <loc>https://blog.blackpiratex.com/tags/wm/</loc>
+    <lastmod>2022-03-30T20:13:52+05:30</lastmod>
+  </url><url>
+    <loc>https://blog.blackpiratex.com/archives/</loc>
+    <lastmod>2019-05-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.blackpiratex.com/categories/</loc>
   </url>
 </urlset>
