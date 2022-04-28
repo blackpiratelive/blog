@@ -2,6 +2,7 @@ baseURL = 'https://blog.blackpiratex.com/'
 languageCode = 'en-us'
 title = 'Blog By BlackPirateX'
 theme = 'archie'
+favicon = '/img/favicon.svg'
 copyright = "BlackPirateX"
 # Code Highlight
 pygmentsstyle = "monokai"

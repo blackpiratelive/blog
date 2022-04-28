@@ -1,7 +1,26 @@
 /* Markdown */
+:root {
+--author-color: #AEAEAE;
+/* background color refers to the background of the webpage and its greyish */
+    --background-color: rgb(28,28,30);
+    --text-normal: #dcddde;
+    --accent-link: rgb(50,215,75 );
+    --yellow: rgb(255,214,10);
+    --light-blue: rgb(100, 210, 255);
+    --warning: rgb(255,69,58);
+    --heading-red: rgb(255,55,95);
+                                                                            --gray3: rgb(72,72,74);
+                                                                            --gray4: rgb(58,58,60);
+                                                                            --gray5: rgb(44,44,46);
+                                                                            --white-gray2: rgb(174,174,178);
+                                                                            --white-gray: rgb(142,142,147);
+                                                                            --white-gray3: rgb(199,199,204);
+                                                                            --table-of-contents: rgb(255, 214, 10);
+                                                                                                                            
+}
 :root{
---maincolor: rgb(52,199,89);
---bordercl: rgb(100,210,255);
+--maincolor: #006d77;
+--bordercl: #83c5be;
 --callouctcolor: rgb(100,210,255);
 --hovercolor: rgb(50,215,75);
 --darkMaincolor: rgb(50,215,75);
@@ -15,6 +34,7 @@ html {
 body{
   display: block;
   margin: 8px;
+  background-color: #edf6f9;
 }
 * {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -22,7 +42,7 @@ body{
 
 ::selection {
   background: var(--maincolor);
-  color: #000;
+  color: #edf6f9;
 }
 
 p {
@@ -44,15 +64,14 @@ blockquote {
 }
 
 a {
-  border-bottom: 3px solid var(--maincolor);
-  color: inherit;
+  color: var(--maincolor);
   text-decoration: none;
+border-bottom: solid 3px var(--maincolor);
 }
 a:hover {
-    background-color: var(--hovercolor);
-    color: #000;
+    background-color: var(--maincolor);
+    color: #edf6f9;
 }
-
 ul {
   list-style: none;
   padding-left: 2ch;
@@ -146,6 +165,7 @@ header .main {
 h1, h2, h3, h4, h5, h6 {
   font-size: 1.2rem;
   margin-top: 2em;
+  color: #006d77;
 }
 
 h1::before { color: var(--maincolor); content: '# '; }

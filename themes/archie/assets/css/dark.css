@@ -28,8 +28,8 @@ body {
 }
 
 ::selection {
-  background: var(--yellow);
-  color: #fff;
+  background: var(--accent-link);
+  color: #000;
   text-shadow: none;
 }
 
@@ -58,7 +58,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: #ddd;
+  color: var(--light-blue);
 }
 h1::before {
   color: var(--darkMaincolor);
@@ -86,14 +86,14 @@ h6::before {
 }
 
 a {
-  border-bottom: 3px solid var(--darkMaincolor);
-  color: inherit;
+  color: var(--accent-link);
+  position: relative;
+  border-bottom: solid 3px var(--accent-link);
 }
 a:hover {
-  background-color: var(--darkMaincolor);
-  color: black;
+    background-color: var(--accent-link);
+    color: black;
 }
-
 .site-description a {
   color: #ddd;
 }
@@ -174,4 +174,25 @@ a:hover {
   content: 'Markdown';
   background: royalblue;
   color: whitesmoke ;
+}
+img {
+    width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+}
+.main > a{
+    border:none;
+    text-decoration: none;
+}
+nav > a::after {
+    content: ']'
+}
+nav > a::before {
+    content: '['
+}
+nav {
+    border: none;
 }
