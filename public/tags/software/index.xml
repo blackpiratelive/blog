@@ -58,5 +58,109 @@ I am happy with obsidian as of now and not planning to switch anytime soon. Mayb
 </description>
     </item>
     
+    <item>
+      <title>My Experience With Various Password Managers</title>
+      <link>https://blog.blackpiratex.com/posts/my-experience-with-various-password-managers/</link>
+      <pubDate>Tue, 09 Nov 2021 18:53:53 +0530</pubDate>
+      
+      <guid>https://blog.blackpiratex.com/posts/my-experience-with-various-password-managers/</guid>
+      <description>&lt;p&gt;Throughout the years i have used many password managers. One of the biggest reasons I started using a password manager is not because of the security but rather I wanted a quick way to type my passwords. Also its easy for me to loose track of the websites I have signed up for. Now you may ask why I didn&amp;rsquo;t use something like password manager built in most modern web browser? Well the answer to that question is I wanted all my passwords to sync to different browsers.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;disclaimer&#34;&gt;Disclaimer&lt;/h3&gt;
+&lt;p&gt;Before starting I want to clear some things first. This review is based on my overall experience. I have only android devices and windows and linux. Your mileage may vary if you are on different devices.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;lastpass-websitehttpslastpasscom&#34;&gt;&lt;strong&gt;LastPass&lt;/strong&gt;: &lt;a href=&#34;https://lastpass.com/&#34;&gt;Website&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Pros -&amp;gt; There is seriously none. Only reason to use it would be you&amp;rsquo;re into their ecosystem and can&amp;rsquo;t get out, or you have to use it for work.&lt;/li&gt;
+&lt;li&gt;Cons:
+&lt;ol&gt;
+&lt;li&gt;Android app is terrible. The UI looks outdated. Android app is filled with trackers.&lt;/li&gt;
+&lt;li&gt;Has very serious security flaws throughout the years. &lt;a href=&#34;https://en.wikipedia.org/wiki/LastPass#Security_issues&#34;&gt;More Info&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Free version is unusable.&lt;/li&gt;
+&lt;li&gt;You cannot export your 2fa seeds if you ever plan to move to a new password manager. (Its necessary feature to have if you are planning to future proof your passwords or 2fa seeds.)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;bitwarden-websitehttpsbitwardencom&#34;&gt;Bitwarden: &lt;a href=&#34;https://bitwarden.com/&#34;&gt;Website&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Pros:&lt;/strong&gt; There is lot to love in Bitwarden.
+&lt;ol&gt;
+&lt;li&gt;Security is flawless. Their apps are open source, You can self host your own instance if you want to.&lt;/li&gt;
+&lt;li&gt;Privacy is also top notch. Android apps don&amp;rsquo;t contain any kind of trackers.&lt;/li&gt;
+&lt;li&gt;Has wide range of supported devices.&lt;/li&gt;
+&lt;li&gt;Probably the best free version of all the password managers. You would have to pay only if you need document support or want to generate TOTP.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;Cons: These might sound like nitpicking.
+&lt;ol&gt;
+&lt;li&gt;&lt;del&gt;I can&amp;rsquo;t like the android app ui. It doesn&amp;rsquo;t feel modern. It isn&amp;rsquo;t laggy but feels sluggish.&lt;/del&gt;  Update 29/04/2022: I am not bothered by it now, but yes sometimes Bitwarden lags while trying to autofill.&lt;/li&gt;
+&lt;li&gt;Their premium version is only 10$ per year, yes its hella cheap, but not in devloping countries. I wish they did regional pricing (I would definitely pay for it.)&lt;/li&gt;
+&lt;li&gt;I&amp;rsquo;d love to have an option where I can upload the encrypted data to a cloud drive. Its like self hosting only the data. (1password and enpass can do this.)&lt;/li&gt;
+&lt;li&gt;Lack of document support in free version.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;1password-websitehttps1passwordcom&#34;&gt;1password: &lt;a href=&#34;https://1password.com/&#34;&gt;Website&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Pros:&lt;/strong&gt;&lt;br&gt;
+1.  If you&amp;rsquo;re willing to pay for a password manager this can be a great choice.
+2. Absolutely a lot of features that you might find useful. For example password history, ability to add any custom field and section to store different types of information.
+3. You can choose to store all the encrypted data to your own choice of cloud storage, like dropbox or google drive.
+4. There&amp;rsquo;s no trackers in android apps and windows apps.
+5. Ability to have multiple vaults,  but Enpass&amp;rsquo;s implementation is better.
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Cons:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;You cannot upload documents if you choose to store passwords by yourself (kinda like self hosting but not really) I mean one of the main reason to self host is that you can get document storage as much as you need. Even dropbox free gives 2GB (which can be increased to 18GB) which is much better than 1GB storage that you get in your subscription.&lt;/li&gt;
+&lt;li&gt;It is not open source at all. But they didn&amp;rsquo;t have any data breach or anything that I can find out.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;enpass-websitehttpswwwenpassio&#34;&gt;&lt;strong&gt;Enpass:&lt;/strong&gt; &lt;a href=&#34;https://www.enpass.io/&#34;&gt;Website&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Pros:&lt;/strong&gt;
+1. Extremely feature rich. It has everything you can ask for in a password manager.
+2. It works without any account or without internet connection at all. Although you&amp;rsquo;ll need internet connection to sync across devices which is optional.
+3. Ability to have multiple vaults, (1Password has this feature too but in my opinion enpass&amp;rsquo;s implementation is better.)
+4. There&amp;rsquo;s no limit of how many data (passwords, documents, notes) you can store.
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Cons:&lt;/strong&gt;
+&lt;ol&gt;
+&lt;li&gt;All apps are closed source.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;dashlane-websitehttpswwwdashlanecom&#34;&gt;Dashlane: &lt;a href=&#34;https://www.dashlane.com/&#34;&gt;Website&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Pros:-&lt;/strong&gt;
+1. The user interface is very simple.
+2. Beginner-normie Friendly
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Cons:-&lt;/strong&gt;
+&lt;ol&gt;
+&lt;li&gt;Nothing is open source. Privacy is meh.&lt;/li&gt;
+&lt;li&gt;Features are very limited. Last time I checked they didn&amp;rsquo;t even had option for custom fields.&lt;/li&gt;
+&lt;li&gt;No Desktop Application, You&amp;rsquo;ll have to use their web app or extension.&lt;/li&gt;
+&lt;li&gt;Free version doesn&amp;rsquo;t sync.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;keepass-websitehttpskeepassinfo&#34;&gt;&lt;strong&gt;Keepass:&lt;/strong&gt; &lt;a href=&#34;https://keepass.info/&#34;&gt;Website&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;I have used keepass only briefly, I have multiple devices, so I need to access my keepass file everywhere, which is not an easy task to do with keepass.
+I know that it is achieveable, but it sure is not as straightforward as something like bitwarden or enpass. I tried using &lt;a href=&#34;https://www.keepassdx.com/&#34;&gt;KeePassDX&lt;/a&gt; with dropbox sync, and it gets conflict so often. So it gets pretty unuseable. I may start using it again once I figure out how to get sync working properly.&lt;/p&gt;
+&lt;p&gt;Of all the password managers I have used my favourite would be Bitwarden, Enpass is a close second. If closed source stuff does not bother you and you want extra fatures, you can use Enpass or 1Password. I personally would prefer enpass more than 1Password. Currently as of April 2022 I aPeriod.m using Bitwarden. Earlier I was using enpass, only reason I moved away from enpass is beacuse of it&amp;rsquo;s closed source nature. For something as important as password manager, it should be open source.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;If you have anything to comment about this post, you can mail me at &lt;a href=&#34;mailto:comments@blackpiratex.com&#34;&gt;comments@blackpiratex.com&lt;/a&gt;, I&amp;rsquo;ll be waiting for your email.&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
   </channel>
 </rss>
