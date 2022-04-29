@@ -14,8 +14,50 @@
       <pubDate>Thu, 28 Apr 2022 14:35:54 +0530</pubDate>
       
       <guid>https://blog.blackpiratex.com/posts/nextdns-review/</guid>
-      <description>What is DNS?  The Domain Name System is a hierarchical and decentralized naming system for computers, services, or other resources connected to the Internet or a private network. It associates various information with domain names assigned to each of the participating entities.
- What is NextDNS?  NextDNS is a dns service which lets you block sites at dns level. That means it can block ads and trackers. Which is the main selling point of this service.</description>
+      <description>&lt;h2 id=&#34;what-is-dns&#34;&gt;What is DNS?&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The Domain Name System is a hierarchical and decentralized naming system for computers, services, or other resources connected to the Internet or a private network. It associates various information with domain names assigned to each of the participating entities.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;what-is-nextdns&#34;&gt;What is NextDNS?&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;NextDNS is a dns service which lets you block sites at dns level. That means it can block ads and trackers. Which is the main selling point of this service.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.blackpiratex.com/img/nextdns-logo.png&#34; alt=&#34;nextdns-logo&#34;&gt;
+In simpler words it&amp;rsquo;s phone book of the internet.&lt;/p&gt;
+&lt;h2 id=&#34;my-experience&#34;&gt;My Experience&lt;/h2&gt;
+&lt;p&gt;I have been using NextDNS for almost few months now. Yes I&amp;rsquo;ve been using their free plan. Which is more than enough for me. My experience with NextDNS is very positive. Once I set it up and did all the testing it never disappointed me.&lt;/p&gt;
+&lt;h3 id=&#34;convenient&#34;&gt;Convenient&lt;/h3&gt;
+&lt;p&gt;NextDNS is pretty convinient way to block ads. In privacy section there&amp;rsquo;s option to add well known adblocker blocklist. And it&amp;rsquo;s as easy it gets. After setting up your configuration you can easily change your dns setings in your operating system.
+For more setup guide you can scroll down on their website and check their guides.&lt;/p&gt;
+&lt;h3 id=&#34;first-time-setup&#34;&gt;First Time Setup&lt;/h3&gt;
+&lt;p&gt;Setting up for the first time is easy, but it night be a bit hard for non techie people. At first I was also having trouble finding out how to whitelist certain site. Also if you select all the adblock filters you might have some issues on certain sites. For example in my case my youtube app wasn&amp;rsquo;t recording history. Then I had to disable few adblock list.&lt;/p&gt;
+&lt;h3 id=&#34;security&#34;&gt;Security&lt;/h3&gt;
+&lt;p&gt;As far as I know NextDNS is pretty secure. They had option for 2step verification.&lt;/p&gt;
+&lt;h3 id=&#34;privacy&#34;&gt;Privacy&lt;/h3&gt;
+&lt;p&gt;Default privacy settings are crappy on NextDNS. But the good thing is that they let you change the default settings. By default it logs everything. I recommend you to disable logs and clear logs right now if you haven&amp;rsquo;t done it already. Also NextDNS requires an email adress which you can easily fake using temp mail or alias.
+In NextDNS you can link IP. Which is not good for privacy so wouldn&amp;rsquo;t recommend using that feature.&lt;/p&gt;
+&lt;h3 id=&#34;features&#34;&gt;Features&lt;/h3&gt;
+&lt;p&gt;NextDNS is feature packed. It&amp;rsquo;s like having your own pi hole.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Pi-hole or Pihole is a Linux network-level advertisement and Internet tracker blocking application which acts as a DNS sinkhole and optionally a DHCP server, intended for use on a private network.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;In NextDNS you can add different types of blocklist to block ads and trackers. Sadly they won&amp;rsquo;t allow you to choose to add your own blacklist. But in Denylist you can choose to block certain domain but sadly it won&amp;rsquo;t be possible to block a lot of domains at once.
+&lt;img src=&#34;https://blog.blackpiratex.com/img/nextdns-2.png&#34; alt=&#34;features&#34;&gt;
+Their parental control feature is also awesome. It lets you block popular social media apps and websites in single click. Also there&amp;rsquo;s an option for recreation time which will allow those blocked sites for certain periods of time on certain days of the week.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Recreation time: Set a period for each day of the week during which some of the websites, apps, games or categories above will not be blocked — e.g. allow Facebook on Mondays and Tuesdays between 6pm and 8pm.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;You can also turn on safesearch by default, block age restricted videos on youtube and block bypass methods like vpn. I&amp;rsquo;m not sure how effective they&amp;rsquo;re, but at least it&amp;rsquo;s nice to have the option.
+In analytics section you can see the analytics of that dns. Keep in mind that it only works if you have turned on logs.
+NextDNS works on different types of DNS protocol like DNS over HTTPS, DNS over TLS.&lt;/p&gt;
+&lt;h3 id=&#34;pricing&#34;&gt;Pricing&lt;/h3&gt;
+&lt;p&gt;NextDNS free version is enough for me, (it gives you 300k dns queries) and also be enough for most people. But they also have paid plans which is a bit expensive where I live. Overall I&amp;rsquo;ll say it&amp;rsquo;s good for most people.&lt;/p&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;Overall for anyone who&amp;rsquo;s looking for dns based adblocking solution NextDNS should be good enough for most of the people. Its convinient to set up (usually takes few mins), easy to manage and their free plan is actually useable. But for people who don&amp;rsquo;t want to trust a central company for all their internet traffic pi hole would be the way to go.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;If you have anything to comment about this post, you can mail me at &lt;a href=&#34;mailto:comments@blackpiratex.com&#34;&gt;comments@blackpiratex.com&lt;/a&gt;, I&amp;rsquo;ll be waiting for your email.&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
     </item>
     
   </channel>

@@ -14,9 +14,33 @@
       <pubDate>Wed, 30 Mar 2022 20:13:52 +0530</pubDate>
       
       <guid>https://blog.blackpiratex.com/posts/why-i-love-wm/</guid>
-      <description>WM stands for window manager. It is a alternative to using full blown desktop environment. More info on ArchWiki
-I have recently started using WM, first i3 now on openbox. And absolutely love it.
-If you are someone who is used to use normal desktop environment like gnome, kde, xfce or any other DE (Desktop Environment), I&amp;rsquo;d suggest to try out WM.You can start with anyone of those window manager you&amp;rsquo;re comfortable with.</description>
+      <description>&lt;p&gt;WM stands for window manager. It is a alternative to using full blown desktop environment. &lt;a href=&#34;https://wiki.archlinux.org/title/window_manager&#34;&gt;More info on ArchWiki&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I have recently started using WM, first i3 now on openbox. And absolutely love it.&lt;/p&gt;
+&lt;p&gt;If you are someone who is used to use normal desktop environment like gnome, kde, xfce or any other &lt;a href=&#34;https://wiki.archlinux.org/title/desktop_environment&#34;&gt;DE (Desktop Environment)&lt;/a&gt;, I&amp;rsquo;d suggest to try out WM.You can start with anyone of those window manager you&amp;rsquo;re comfortable with. Setting up wm is easy on fresh arch install so it shouldn&amp;rsquo;t be a barrier.&lt;/p&gt;
+&lt;h3 id=&#34;you-can-do-everything-using-keyboard-shortcuts&#34;&gt;You can do everything using keyboard shortcuts.&lt;/h3&gt;
+&lt;p&gt;Opening windows, closing windows, moving to different workspaces etc, can be done using keyboard shortcuts. It took me few days to get used to use keyboard shortcuts but now i can say it&amp;rsquo;s miles better than using mouse.&lt;/p&gt;
+&lt;h3 id=&#34;one-window-doesnt-cover-another&#34;&gt;One window doesn&amp;rsquo;t cover another&lt;/h3&gt;
+&lt;p&gt;Yes it doesn&amp;rsquo;t (by default), and why the hell would you want to keep one window on top of another?&lt;/p&gt;
+&lt;h3 id=&#34;easily-customizable&#34;&gt;Easily customizable&lt;/h3&gt;
+&lt;p&gt;I open up documentation in one workspace and vim with config file opened in another workspace. Changing everything is as easy as editing a text file. Documentations are mostly gets the job done, but if still doesn&amp;rsquo;t work one quick brave Search or youtube search does it.&lt;/p&gt;
+&lt;h3 id=&#34;loading-others-configuration&#34;&gt;Loading other&amp;rsquo;s configuration&lt;/h3&gt;
+&lt;p&gt;Sometimes I don&amp;rsquo;t wanna configure everything by myself, so I&amp;rsquo;d go &lt;a href=&#34;https://reddit.com/r/unixporn&#34;&gt;r/unixporn&lt;/a&gt; and load other&amp;rsquo;s configuration. And  &lt;em&gt;voilà&lt;/em&gt; its done. Well in reality I still have to open the config file and tweak here and there, but it&amp;rsquo;s usually &amp;rsquo;less time consuming&#39;.&lt;/p&gt;
+&lt;h3 id=&#34;forces-you-to-use-the-terminal&#34;&gt;Forces you to use the terminal&lt;/h3&gt;
+&lt;p&gt;I&amp;rsquo;m a pretty new when it comes to Linux. Although terminal doesn&amp;rsquo;t scare me anymore, I sometimes still think using terminal is hard. Using a wm forces me to use terminal when possible.&lt;/p&gt;
+&lt;h3 id=&#34;texts--icons&#34;&gt;Texts &amp;raquo;&amp;gt; Icons&lt;/h3&gt;
+&lt;p&gt;I have never been a fan of icons, I&amp;rsquo;d prefer simple texts over icons any day. A window manager normally doesn&amp;rsquo;t have icons.&lt;/p&gt;
+&lt;h3 id=&#34;its-minimal-less-distracting-more-productive&#34;&gt;Its minimal, less distracting, more productive&lt;/h3&gt;
+&lt;p&gt;I don&amp;rsquo;t spend any time trying to arrange my opened tabs. (Suck on that Windows users) I&amp;rsquo;d open a programme because I want to open it, not because I was sitting mindlessly and getting bored.&lt;/p&gt;
+&lt;h3 id=&#34;elitism-feeling&#34;&gt;Elitism Feeling&lt;/h3&gt;
+&lt;p&gt;It comes with the OS, if you&amp;rsquo;re a Linux user you know what I&amp;rsquo;m taking about.&lt;/p&gt;
+&lt;h1 id=&#34;in-conclusion&#34;&gt;In conclusion:&lt;/h1&gt;
+&lt;p&gt;If you are still not convinced, I&amp;rsquo;ll suggest you give it a try, take a break from conventional way of managing windows and embrace the new. You can always go back to doing things your way.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;PS:&lt;/strong&gt;  I use Arch BTW&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;If you have something to say about this post, mail me at &lt;a href=&#34;mailto:blackpirate101@protonmail.com&#34;&gt;blackpirate101@protonmail.com&lt;/a&gt;. You can click above or copy the email address from below.
+&lt;code&gt;blackpirate101@protonmail.com&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
     </item>
     
   </channel>
