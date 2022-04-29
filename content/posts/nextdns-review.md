@@ -1,6 +1,6 @@
 ---
 title: "Nextdns Review"
-date: 2022-04-28T14:35:54+05:30
+date: 2021-05-21T14:35:54+05:30
 tags: [internet]
 ---
 ## What is DNS?
