@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>software on Blog By BlackPirateX</title>
+    <link>https://blog.blackpiratex.com/tags/software/</link>
+    <description>Recent content in software on Blog By BlackPirateX</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>BlackPirateX</copyright>
+    <lastBuildDate>Thu, 28 Apr 2022 00:08:39 +0530</lastBuildDate><atom:link href="https://blog.blackpiratex.com/tags/software/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>In Search for Perfect Daily Journal App</title>
+      <link>https://blog.blackpiratex.com/posts/in-search-for-perfect-daily-journal-app/</link>
+      <pubDate>Thu, 28 Apr 2022 00:08:39 +0530</pubDate>
+      
+      <guid>https://blog.blackpiratex.com/posts/in-search-for-perfect-daily-journal-app/</guid>
+      <description>To be considered a viable app for my Daily Journal needs it must have following charateristics.
+ Decent UI Either end to end encrypted if the app is cloud based or data stays locally. Cross platform. Including Linux. Easy way to export for personal backups. Free  Because of lack of privacy at my home, I had moved away from physical pen and paper diaries and moved completely to digital. It&amp;rsquo;s much easier to hide something online than trying to hide at my home.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>internet on Blog By BlackPirateX</title>
+    <link>https://blog.blackpiratex.com/tags/internet/</link>
+    <description>Recent content in internet on Blog By BlackPirateX</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>BlackPirateX</copyright>
+    <lastBuildDate>Thu, 28 Apr 2022 14:35:54 +0530</lastBuildDate><atom:link href="https://blog.blackpiratex.com/tags/internet/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Nextdns Review</title>
+      <link>https://blog.blackpiratex.com/posts/nextdns-review/</link>
+      <pubDate>Thu, 28 Apr 2022 14:35:54 +0530</pubDate>
+      
+      <guid>https://blog.blackpiratex.com/posts/nextdns-review/</guid>
+      <description>What is DNS?  The Domain Name System is a hierarchical and decentralized naming system for computers, services, or other resources connected to the Internet or a private network. It associates various information with domain names assigned to each of the participating entities.
+ What is NextDNS?  NextDNS is a dns service which lets you block sites at dns level. That means it can block ads and trackers. Which is the main selling point of this service.</description>
+    </item>
+    
+  </channel>
+</rss>
