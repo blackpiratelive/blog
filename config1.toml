@@ -1,0 +1,64 @@
+baseURL = 'https://blog.blackpiratex.com/'
+languageCode = 'en-us'
+title = 'Blog By BlackPirateX'
+theme = 'LoveIt'
+favicon = '/static/img/favicon.svg'
+copyright = "BlackPirateX"
+# Code Highlight
+pygmentsstyle = "monokai"
+pygmentscodefences = true
+pygmentscodefencesguesssyntax = true
+
+paginate=3 # articles per page
+
+[params]
+    mode="dark" # color-mode → light,dark,toggle or auto
+        useCDN=false # don't use CDNs for fonts and icons, instead serve them locally.
+            subtitle = "A place to write down my thoughts, rants, and reviews."
+
+# Social Tags
+[[params.social]]
+name = "GitHub"
+icon = "github"
+url = "https://github.com/blackpirateapps"
+
+[[params.social]]
+name = "rss"
+icon = "rss"
+url = "/index.xml"
+# Main menu Items
+
+[[menu.main]]
+name = "Main Website"
+url = "https://blackpiratex.com/"
+weight = 1
+
+[[menu.main]]
+name = "Home"
+url = "/"
+weight = 2
+
+
+[[menu.main]]
+name = "All posts"
+url = "/posts"
+weight = 3
+
+[[menu.main]]
+name = "About"
+url = "https://blackpiratex.com/about"
+weight = 4
+
+[[menu.main]]
+name = "Tags"
+url = "/tags"
+weight = 5
+
+[[menu.main]]
+name = "Rss"
+url = "/index.xml"
+weight = 6
+
+[taxonomies]
+   tag = "tags"
+      category = "categories"
