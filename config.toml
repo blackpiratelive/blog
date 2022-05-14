@@ -11,6 +11,9 @@ description = "Blog By BlackPirateX"
 languageCode = "en"
 # language name ["English", "简体中文", "Français", "Polski", ...]
 languageName = "English"
+[taxonomies]
+  category = 'categories'
+    tag = 'tags'
 
 # Author config
 [author]
@@ -22,11 +25,18 @@ languageName = "English"
 [menu]
   [[menu.main]]
     weight = 1
+    name = "Main Website"
+    url = "https://blackpiratex.com"
+    title = "https://blackpiratex.com"
+    pre = "["
+    post = "]"
+  [[menu.main]]
+    weight = 1
     identifier = "posts"
+    pre = "["
+    post = "]"
     # you can add extra information before the name (HTML format is supported), such as icons
-    pre = ""
     # you can add extra information after the name (HTML format is supported), such as icons
-    post = ""
     name = "Posts"
     url = "/posts/"
     # title will be shown when you hover on this menu link
@@ -34,20 +44,12 @@ languageName = "English"
   [[menu.main]]
     weight = 2
     identifier = "tags"
-    pre = ""
-    post = ""
     name = "Tags"
+    pre = "["
+    post = "]"
+
     url = "/tags/"
     title = ""
-  [[menu.main]]
-    weight = 3
-    identifier = "categories"
-    pre = ""
-    post = ""
-    name = "Categories"
-    url = "/categories/"
-    title = ""
-
 # Markup related configuration in Hugo
 [markup]
   # Syntax Highlighting (https://gohugo.io/content-management/syntax-highlighting)
