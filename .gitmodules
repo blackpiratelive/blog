@@ -2,3 +2,6 @@
 	path = public
 	url = https://github.com/blackpiratelive/blog-ready-to-deploy.git
 	branch = main
+[submodule "blog-ready-to-deploy"]
+	path = blog-ready-to-deploy
+	url = https://github.com/blackpiratelive/blog-ready-to-deploy.git
