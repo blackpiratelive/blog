@@ -28,13 +28,13 @@ languageName = "English"
     name = "Main Website"
     url = "https://blackpiratex.com"
     title = "https://blackpiratex.com"
-    pre = "["
-    post = "]"
+    pre = ""
+    post = ""
   [[menu.main]]
     weight = 1
     identifier = "posts"
-    pre = "["
-    post = "]"
+    pre = ""
+    post = ""
     # you can add extra information before the name (HTML format is supported), such as icons
     # you can add extra information after the name (HTML format is supported), such as icons
     name = "Posts"
@@ -45,8 +45,8 @@ languageName = "English"
     weight = 2
     identifier = "tags"
     name = "Tags"
-    pre = "["
-    post = "]"
+    pre = ""
+    post = ""
 
     url = "/tags/"
     title = ""
