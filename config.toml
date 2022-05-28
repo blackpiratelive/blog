@@ -53,6 +53,16 @@ languageName = "English"
 
   [[menu.main]]
     weight = 3
+    identifier = "gallery"
+    name = "Gallery"
+    pre = ""
+    post = ""
+
+    url = "https://gallery.blackpiratex.com"
+    title = "Go to my photo gallery"
+
+  [[menu.main]]
+    weight = 4
     identifier = "rss"
     name = "Subscribe via RSS"
     pre = ""
