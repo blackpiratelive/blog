@@ -50,6 +50,17 @@ languageName = "English"
 
     url = "/tags/"
     title = ""
+
+  [[menu.main]]
+    weight = 3
+    identifier = "rss"
+    name = "Subscribe via RSS"
+    pre = ""
+    post = ""
+
+    url = "/index.xml"
+    title = ""
+
 # Markup related configuration in Hugo
 [markup]
   # Syntax Highlighting (https://gohugo.io/content-management/syntax-highlighting)
@@ -91,7 +102,7 @@ languageName = "English"
       # subtitle shown in home page
       subtitle = "A place for me to write down my thoughts, rants, reviews and study notes."
       # whether to use typeit animation for subtitle
-      typeit = true
+      typeit = false
       # whether to show social links
       social = true
       # LoveIt NEW | 0.2.0 disclaimer (HTML format is supported)
@@ -135,5 +146,5 @@ languageName = "English"
     searchKey = "adb8fc3e8b560f157f55777ba0895c89"
 
 [outputs]
-	home = [ "HTML", "JSON"]
+	home = [ "HTML", "JSON", "RSS"]
 	page = [ "HTML"]
