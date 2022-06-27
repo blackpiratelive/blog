@@ -47,3 +47,4 @@ If you are still not convinced, I'll suggest you give it a try, take a break fro
 
 
 
+[Edit this page](https://github.com/blackpiratelive/blog/blob/main/content/posts/why-i-love-wm.md)

@@ -2,6 +2,7 @@
 title: "Fedora Doesn't Like Me"
 date: 2022-06-27T14:54:23+05:30
 tags: [linux, software, rant]
+lastmod: 2022-06-27T14:54:23+05:30
 ---
 
 
@@ -20,5 +21,9 @@ I miss AUR, it is just so good. One command and your apps are installed. Fedora 
 
 I am too lazy to fix all these errors, so here goes my rant. Archcraft is better distro for me. I miss bspwm. So switched back from fedora to archcraft. 
 
+{{< admonition type=info title="Comments" open=true >}}
+ If you have anything to comment about this post, you can mail me at [comments@blackpiratex.com](mailto:comments@blackpiratex.com), I'll be waiting for your email.
+{{< /admonition >}}
 
-> If you have anything to comment about this post, you can mail me at [comments@blackpiratex.com](mailto:comments@blackpiratex.com), I'll be waiting for your email.
+
+[Edit this page](https://github.com/blackpiratelive/blog/blob/main/content/posts/fedora-doesnt-like-me.md)

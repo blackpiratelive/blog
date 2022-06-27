@@ -85,3 +85,4 @@ Most fundamental things like calling or texting works without any hiccups. It is
 
 > If you have anything to comment about this post, you can mail me at [comments@blackpiratex.com](mailto:comments@blackpiratex.com), I'll be waiting for your email.
 
+[Edit this page](https://github.com/blackpiratelive/blog/blob/main/content/posts/using-degoogled-phone-isnt-as-hard-as-you-might-think.md)
