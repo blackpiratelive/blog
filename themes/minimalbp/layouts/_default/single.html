@@ -1,6 +1,7 @@
 {{- partial "head.html" . -}}
+{{- partial "header.html" . -}}
 <div class="all-content">
-    {{- partial "header.html" . -}}
+
     <h1>{{ .Title }}</h1>
     <p class="author">By {{ .Site.Params.author }}. {{ .WordCount }} words. Read by {{ .ReadingTime }} minute(s).</p>
     
@@ -12,8 +13,9 @@
             <span><a href="{{ .Permalink }}">{{ .LinkTitle }}</a>,</span>
         {{ end }}
     </p>
-    {{- partial "footer.html" . -}}
+
     
 </div>
+{{- partial "footer.html" . -}}
 </body>
 </html>

@@ -1,7 +1,7 @@
 {{- partial "head.html" . -}}
 <body>
+    {{- partial "header.html" . -}}
     <div class="all-content">
-        {{- partial "header.html" . -}}
         <h4>{{ .Site.Params.description }}</h4>
         <div class="posts">
             <ul>
@@ -14,7 +14,7 @@
             {{ end -}}
         </ul>
     </div>
-
     {{- partial "footer.html" . -}}
 </div>
+
 <body></html>
