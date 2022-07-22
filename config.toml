@@ -1,4 +1,4 @@
-baseURL = 'http://example.org/'
+baseURL = 'https://blog.blackpiratex.com/'
 languageCode = 'en-us'
 title = 'Blog By BlackPirateX'
 theme = 'minimalbp'

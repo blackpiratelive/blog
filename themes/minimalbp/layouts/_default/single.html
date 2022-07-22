@@ -2,7 +2,8 @@
 {{- partial "header.html" . -}}
 <div class="all-content">
 
-    <h1>{{ .Title }}</h1>
+    <h1 class="post-title">{{ .Title }}</h1>
+    <p class="author">Posted on {{ .Date.Format "January 02, 2006" }}</p>
     <p class="author">By {{ .Site.Params.author }}. {{ .WordCount }} words. Read by {{ .ReadingTime }} minute(s).</p>
     
     {{ .Content }}

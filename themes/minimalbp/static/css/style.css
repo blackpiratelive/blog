@@ -7,18 +7,17 @@ body {
     font-size: 1.2rem;
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    font-family: Helvetica, sans-serif;
 }
 .main-heading {
     text-align: center;
-    padding: 0.5rem;
+    padding: 1rem;
     border-bottom: solid 2px black;
     background-color: black;
     color: white;
     margin-top: none;
 }
 h1 {
-    text-align: center;
     padding: 0;
     margin-bottom: 0;
     margin-top: 0;
@@ -26,6 +25,10 @@ h1 {
 h4 {
     text-align: center;
     color: grey;
+}
+.description {
+    font-family: Helvetica, sans-serif;
+    margin: 0;
 }
 h1,
 h2,
@@ -73,6 +76,9 @@ a {
     color: var(--accent);
     text-decoration: none;
 }
+a:hover {
+    text-decoration: underline;
+}
 .nav-bar {
     display: flex;
     justify-content: center;
@@ -92,4 +98,28 @@ a {
 
 #footer-link {
     color: red !important;
+}
+blockquote {
+    border: solid 4px rgb(219, 217, 217);
+    padding: 0.75rem;
+    border-radius: 8px;
+}
+blockquote > p {
+    margin: 0;
+}
+.post-title {
+    text-align: center;
+}
+::selection {
+    background-color: var(--accent);
+    color: white;
+}
+img {
+    width: 100%;
+}
+.post-list {
+    margin: 0.25rem;
+}
+.post-divider {
+    margin: 0;
 }
