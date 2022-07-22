@@ -82,4 +82,3 @@ Of all the password managers I have used my favourite would be Bitwarden, Enpass
 
 > If you have anything to comment about this post, you can mail me at [comments@blackpiratex.com](mailto:comments@blackpiratex.com), I'll be waiting for your email.
 
-[Edit this page](https://github.com/blackpiratelive/blog/blob/main/content/posts/my-experience-with-various-password-managers.md)

@@ -41,4 +41,3 @@ You can also reference back your old journals if necessary easily. For example y
 Physical form of journaling has its advantages there is no doubt about that, but personally I prefer Digital ones. The beauty of digital journalism is that it can be as much complex as you want it to be, it can perfectly as you like it. Given that you are comfortable giving your time and energy to it. If you want a place to dump your brain and trying to lower your screen on time, then maybe you would be better off with physical ones, but for most people I think digital journal is much better than physical ones. 
 > If you have anything to say about this post, you can email me at [comments@blackpiratex.com](mailto:comments@blackpiratex.com)
 
-[Edit this page](https://github.com/blackpiratelive/blog/blob/main/content/posts/digital-journaling-is-better-than-physical-journaling.md)

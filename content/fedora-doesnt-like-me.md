@@ -21,15 +21,4 @@ I miss AUR, it is just so good. One command and your apps are installed. Fedora 
 
 I am too lazy to fix all these errors, so here goes my rant. Archcraft is better distro for me. I miss bspwm. So switched back from fedora to archcraft. 
 
-{{< raw >}}
-<script src="https://utteranc.es/client.js"
-        repo="blackpiratelive/comments"
-        issue-term="title"
-        theme="dark-blue"
-        crossorigin="anonymous"
-        async>
-</script>
-{{< /raw >}}
 
-
-[Edit this page](https://github.com/blackpiratelive/blog/blob/main/content/posts/fedora-doesnt-like-me.md)

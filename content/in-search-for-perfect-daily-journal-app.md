@@ -55,4 +55,3 @@ This post was last updated on: 27/04/2022
 
 > If you have anything to comment about this post, you can mail me at [comments@blackpiratex.com](mailto:comments@blackpiratex.com), I'll be waiting for your email.
 
-[Edit this page](https://github.com/blackpiratelive/blog/blob/main/content/posts/in-search-for-perfect-daily-journal-app.md)

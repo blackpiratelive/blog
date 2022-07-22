@@ -45,6 +45,3 @@ If you are still not convinced, I'll suggest you give it a try, take a break fro
 > If you have something to say about this post, mail me at [blackpirate101@protonmail.com](mailto:blackpirate101@protonmail.com). You can click above or copy the email address from below. 
 > `blackpirate101@protonmail.com`
 
-
-
-[Edit this page](https://github.com/blackpiratelive/blog/blob/main/content/posts/why-i-love-wm.md)
