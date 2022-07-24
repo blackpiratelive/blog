@@ -9,3 +9,7 @@ theme = 'minimalbp'
   description = "A place for me to write down my thoughts, rants, reviews and study notes."
   tags = 'tags'
   catagories = 'catagories'
+[imaging]
+  anchor = 'Smart'
+  quality = 25
+  resampleFilter = 'Box'
