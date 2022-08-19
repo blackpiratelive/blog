@@ -1,11 +1,16 @@
 :root {
-    --accent: rgb(0,122,255);
+    --accent: rgb(120, 185, 249);
+    --text-clr: white;
+    --background-clr: rgb(28,28,30);
     --tob-bg: rgb(142,142,147);
     --accent-black-bg: rgb(10,132, 255);
     --code-background-color: #272822;
+    --accent-clr-hvr: rgb(127, 191, 255);
 }
 body {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    background-color: var(--background-clr);
+    color: var(--text-clr);
     margin: 0;
     padding: 0;
     font-family: Helvetica, sans-serif;
@@ -41,7 +46,8 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: serif;
+
+    font-family: monospace;
 }
 .footer {
     margin: auto;
@@ -63,12 +69,12 @@ h6 {
     margin: 0;
 }
 .footer > p > a {
-    color: var(--accent-black-bg);
+    color: var(--accent);
 }
 .all-content {
     max-width: 900px;
     margin: auto;
-    background-color: white;
+    background-color: var(--background-clr);
     padding: 1rem;
 }
 .author {
@@ -80,13 +86,13 @@ h6 {
 a {
     color: var(--accent);
     text-decoration: none;
+    font-family: monospace;
     padding: 0.25rem;
 }
 a:hover {
-    background-color: var(--accent);
-    color: white;
+    color: var(--accent-clr-hvr);
+    text-decoration: underline;
     padding: 0.25rem;
-    border-radius: 4px;
 }
 .nav-bar {
     display: flex;
@@ -99,11 +105,12 @@ a:hover {
     top: 0;
 }
 .nav-item > a {
-    color: white;
+    color: var(--background-clr);
 }
 .nav-item > a:hover {
-    background-color: white;
+    background-color: var(--background-clr);
     color: var(--accent);
+    text-decoration: none;
 }
 @media (min-width: 600px) {
     .nav-bar {
