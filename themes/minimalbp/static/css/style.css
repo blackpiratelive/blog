@@ -145,7 +145,7 @@ a:hover {
     text-shadow: none;
 }
 img {
-    width: 50%;
+   width: clamp(50%, 300px, 100%);
     display: block;
     margin: auto;
     text-align: center;
@@ -153,9 +153,6 @@ img {
 @media (min-width: 600px) {
     .nav-bar {
         position: sticky;
-    }
-    img {
-        width: 50%;
     }
 }
 

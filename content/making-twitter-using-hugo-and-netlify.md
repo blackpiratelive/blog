@@ -4,9 +4,11 @@ date: 2022-08-25T19:30:17+05:30
 lastmod: 2022-08-28T19:17:17+05:30
 tags: [website, software, guide]
 ---
+
 ## Check a live version: 
 Check out live version of the website that I made. 
 https://status.blackpiratex.com/
+
 ---
 
 Blogs are great if you want to write something that is atleast one paragraph. But for those one line thoughts that comes to your mind, which you want to share with the world or want to write it down, 'cause most likely you would not remember it in future, microblogging is the way to go. If you are not familier with this term, it means twitter like platform, where you can make posts but those would be not more than a paragraph.
