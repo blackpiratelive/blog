@@ -135,15 +135,27 @@ a:hover {
 }
 .nav-item > a {
     color: var(--background-clr);
+    font-weight: 800;
+    font-family: serif;
 }
 .nav-item > a:hover {
     background-color: var(--background-clr);
     color: var(--accent);
     text-decoration: none;
+    text-shadow: none;
+}
+img {
+    width: 50%;
+    display: block;
+    margin: auto;
+    text-align: center;
 }
 @media (min-width: 600px) {
     .nav-bar {
         position: sticky;
+    }
+    img {
+        width: 50%;
     }
 }
 
@@ -162,9 +174,7 @@ blockquote > p {
     background-color: var(--accent);
     color: white;
 }
-img {
-    width: 100%;
-}
+
 .post-list {
     margin: 0.25rem;
 }
@@ -186,6 +196,10 @@ code {
 }
 pre {
     white-space: -pre-wrap;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    word-wrap: break-word;
     white-space: -o-pre-wrap;
     word-wrap: break-word;
     background-color: grey;

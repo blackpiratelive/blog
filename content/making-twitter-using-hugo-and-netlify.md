@@ -30,6 +30,7 @@ But if you **"own" your data**, i.e storing your own data somewhere where you ha
 
 ## How-to
 There is three things I used to set up this website,
+
 ![Hugo Netlify Github Logo](/img/logos-hugo-netlify-github.jpg)
 1.  [Hugo](https://gohugo.io/) (Static site generator)
 2.  [Netlify](https://netlify.app/) (platform to deploy my website for free
