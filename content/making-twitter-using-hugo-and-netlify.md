@@ -1,11 +1,11 @@
 ---
 title: 'Making Twitter Using Hugo & Netlify'
 date: 2022-08-25T19:30:17+05:30
-lastmod: 2022-08-25T19:30:17+05:30
+lastmod: 2022-08-28T19:17:17+05:30
 tags: [website, software, guide]
 ---
-## Check a live version of this website: 
-
+## Check a live version: 
+Check out live version of the website that I made. 
 https://status.blackpiratex.com/
 ---
 
@@ -49,7 +49,8 @@ There is three things I used to set up this website,
 ### Step 1:
 
 On the home page of my website there is a loop which goes through all the posts grabs their date and time, and content and makes those appear on the home page. 
-```
+
+{{< highlight html >}}
 {{ range (.Paginator 100).Pages }}
 
 <div class="status-all">
@@ -85,11 +86,11 @@ On the home page of my website there is a loop which goes through all the posts 
 <br>
 
 {{ end -}}
+{{< /highlight >}}
 
-```
 The very first line is the start of the loop. It basically says that give me all the pages (post pages). The *.Paginator 100* parts basically tells that I want first 100 pages. Then the loop runs. The *{{ if isset .Params "tags" }}* part checks for any tags, if there is any tag associated with the post, then it would run another loop. It will grab all those tags and display them. If there is no tags added to the post, this loop would not run. So if you have not added any tags to the post it would not show them.
 
-```
+{{< highlight html >}}
 {{ if .Paginator.HasPrev }}
 
 <a class="btn btn-default" href="{{ .Paginator.Prev.URL }}">
@@ -109,9 +110,7 @@ Older Statuses >
 </a>
 
 {{ end }}
-```
-
-
+{{< /highlight >}}
 
 This part adds two links to the end of the page. The very first loop checks if there is any newer statuses, that this page does not contain, then it would run and display a hyperlink called *Newer Statuses*.
 
