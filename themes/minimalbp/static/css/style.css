@@ -1,11 +1,25 @@
 :root {
-    --accent: rgb(120, 185, 249);
-    --text-clr: white;
+    --accent: rgb(50,215,75);
+    --accent-low-opacity: rgba(223,223,225, 0.25);
+    --text-clr: rgb(223, 223, 225);
     --background-clr: rgb(28,28,30);
     --tob-bg: rgb(142,142,147);
     --accent-black-bg: rgb(10,132, 255);
     --code-background-color: #272822;
-    --accent-clr-hvr: rgb(127, 191, 255);
+    --accent-clr-hvr: rgb(182, 221, 187);
+    --accent-2: rgb(255,214,10);
+    --warning-clr: rgb(255,69,58);
+}
+@keyframes new-animation {
+    0% {
+        color: var(--warning-clr);
+    }
+    50% {
+        color: var(--accent-2);
+    }
+    100% {
+        color: var(--warning-clr);
+    }
 }
 body {
     font-size: 1.1rem;
@@ -21,11 +35,20 @@ body {
 }
 .main-heading {
     text-align: center;
+    text-shadow: 0.15rem 0.15rem 0.25rem var(--accent);
     padding: 1rem;
     border-bottom: solid 2px black;
-    background-color: black;
+    background: linear-gradient(45deg, var(--background-clr) 80%, var(--accent-low-opacity));
     color: white;
     margin-top: none;
+}
+.main-heading::after {
+    content: " by BlackPirateX";
+    text-shadow: none;
+    display: block;
+    font-family: sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
 }
 h1 {
     padding: 0;
@@ -34,7 +57,6 @@ h1 {
 }
 h4 {
     text-align: center;
-    color: grey;
 }
 .description {
     font-family: Helvetica, sans-serif;
@@ -47,14 +69,12 @@ h4,
 h5,
 h6 {
 
-    font-family: monospace;
+    font-family: serif;
+    color: var(--accent-2);
 }
 .footer {
     margin: auto;
-    background-color: black;
-    color: white;
-    padding: 0.75rem;
-    border-radius: 8px;
+    color: var(--text-clr);
     margin-bottom: 2rem;
     width: 50%;
     font-size: 1rem;
@@ -86,13 +106,22 @@ h6 {
 a {
     color: var(--accent);
     text-decoration: none;
-    font-family: monospace;
+    font-family: sans-serif;
     padding: 0.25rem;
 }
 a:hover {
     color: var(--accent-clr-hvr);
     text-decoration: underline;
     padding: 0.25rem;
+    white-space: pre-wrap; /* CSS3 */    
+    white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+    white-space: -pre-wrap; /* Opera 4-6 */    
+    white-space: -o-pre-wrap; /* Opera 7 */    
+    word-wrap: break-word; /* Internet Explorer 5.5+ */ 
+}
+.homepage-blog-list:hover {
+    font-size: 1.2rem;
+    transition: font-size 300ms;
 }
 .nav-bar {
     display: flex;
@@ -118,9 +147,6 @@ a:hover {
     }
 }
 
-#footer-link {
-    color: red !important;
-}
 blockquote {
     border: solid 4px rgb(219, 217, 217);
     padding: 0.75rem;
@@ -159,13 +185,22 @@ code {
     margin: 0;
 }
 pre {
-    overflow-x: auto;
-    white-space: pre-wrap;
-    white-space: -moz-pre-wrap;
     white-space: -pre-wrap;
     white-space: -o-pre-wrap;
     word-wrap: break-word;
     background-color: grey;
     padding: 1rem;
     margin: 0;
+}
+.post-list:nth-child(2)::after,
+.post-list:nth-child(1)::after {
+    content: "NEW";
+    animation: new-animation 500ms infinite alternate;
+    letter-spacing: 0.25rem;
+    font-size: 0.95rem;
+    font-family: monospace;
+    color: var(--warning-clr);
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+    border-radius: 50%;
 }

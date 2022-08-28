@@ -1,6 +1,6 @@
 ---
 title: "Revolution 2020 - Book Highlights"
-date: 2022-08-19T20:31:26+05:30
+date: 2021-08-19T20:31:26+05:30
 tags: [book, fiction, book highlights]
 bookauthor: "Chetan Bhagat"
 book: true

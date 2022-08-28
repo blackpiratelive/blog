@@ -1,6 +1,6 @@
 baseURL = 'https://blog.blackpiratex.com/'
 languageCode = 'en-us'
-title = 'Blog By BlackPirateX'
+title = 'Blog'
 theme = 'minimalbp'
 
 

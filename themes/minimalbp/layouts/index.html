@@ -5,14 +5,13 @@
         <h4 class="description">{{ .Site.Params.description }}</h4>
         <div class="posts">
             <p class="author">Press CTRL+F to search</p>
-            <ul>
+            <ul class="home-ul">
                 {{- range.RegularPages }}
                 <li class="post-list">
-                    <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "2006 Jan 02" }}</time>
+                    <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}"><span class="time-homepage">{{ .Date.Format "2006 Jan 02" }}</span></time>
                     &ndash;
-                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                    <a href="{{ .RelPermalink }}" class="homepage-blog-list">{{ .Title }}</a>
                 </li>
-                <hr class="post-divider">
             {{ end -}}
         </ul>
     </div>
