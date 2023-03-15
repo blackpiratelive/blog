@@ -38,7 +38,7 @@ body {
     color: var(--text-clr);
     margin: 0;
     padding: 0;
-    font-family:'Times New Roman', serif;
+    font-family: Helvetica, sans-serif;
 }
 .bookauthor {
     text-align: center;
@@ -83,7 +83,7 @@ h4,
 h5,
 h6 {
 
-    font-family: sans-serif;
+    font-family: serif;
     color: var(--accent);
 }
 .footer {
@@ -121,7 +121,7 @@ a {
     color: var(--accent);
     text-decoration: underline;
     text-underline-offset: 2px;
-    font-family: 'Times New Roman', serif;
+    font-family: sans-serif;
     padding: 0.25rem;
     white-space: pre-wrap; /* CSS3 */    
     white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
