@@ -109,7 +109,7 @@ h6 {
     max-width: 900px;
     margin: auto;
     background-color: var(--background-clr);
-    padding: 0.15rem;
+    padding: 0.5rem;
 }
 .author {
     color: grey;
@@ -248,4 +248,12 @@ pre {
     padding-left: 0.25rem;
     padding-right: 0.25rem;
     border-radius: 50%;
+}
+.homepage-blog-list {
+    font-family: sans-serif;
+    text-decoration: none;
+}
+.time-homepage {
+    font-weight: 700;
+    font-size: 1rem;
 }
