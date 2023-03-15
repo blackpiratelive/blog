@@ -109,7 +109,7 @@ h6 {
     max-width: 900px;
     margin: auto;
     background-color: var(--background-clr);
-    padding: 1rem;
+    padding: 0.15rem;
 }
 .author {
     color: grey;
