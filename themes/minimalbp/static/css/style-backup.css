@@ -1,12 +1,12 @@
 :root {
-    --accent: #3E54AC;
+    --accent: rgb(50,215,75);
     --accent-low-opacity: rgba(223,223,225, 0.25);
-    --text-clr: black;
-    --background-clr: white;
-    --tob-bg: white;
+    --text-clr: rgb(223, 223, 225);
+    --background-clr: rgb(28,28,30);
+    --tob-bg: rgb(142,142,147);
     --accent-black-bg: rgb(10,132, 255);
     --code-background-color: #272822;
-    --accent-clr-hvr: grey;
+    --accent-clr-hvr: rgb(182, 221, 187);
     --accent-2: rgb(255,214,10);
     --warning-clr: rgb(255,69,58);
 }
@@ -48,8 +48,8 @@ body {
     text-align: center;
     text-shadow: 0.15rem 0.15rem 0.25rem var(--accent);
     padding: 1rem;
-    border-bottom: solid 1px white;
-    background-color: var(--accent);
+    border-bottom: solid 2px black;
+    background: linear-gradient(45deg, var(--background-clr) 80%, var(--accent-low-opacity));
     color: white;
     margin-top: none;
 }
@@ -60,9 +60,6 @@ body {
     font-family: sans-serif;
     font-weight: 400;
     font-size: 1rem;
-}
-.nav-item a {
-    text-decoration: none;
 }
 h1 {
     padding: 0;
@@ -84,7 +81,7 @@ h5,
 h6 {
 
     font-family: serif;
-    color: var(--accent);
+    color: var(--accent-2);
 }
 .footer {
     margin: auto;
@@ -119,8 +116,7 @@ h6 {
 }
 a {
     color: var(--accent);
-    text-decoration: underline;
-    text-underline-offset: 2px;
+    text-decoration: none;
     font-family: sans-serif;
     padding: 0.25rem;
     white-space: pre-wrap; /* CSS3 */    
