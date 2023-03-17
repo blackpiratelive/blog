@@ -1,5 +1,5 @@
 ---
-title: "I Am in Love With Fountain Pens"
+title: "My Fountain Pen Collection"
 date: 2023-02-12T20:43:37+05:30
 tags: [pens]
 draft: true
@@ -19,7 +19,14 @@ This pen is heaviest in my collection. It took me quite some time to be able to 
 the nib from the main body. I gave up. 
 
 ### Platinum Preppy Fine
-This is my 2nd favourite pen. This is arugbly one of the smoothest nib in my collection, despite being a fine nib. The weight is little bit on the lighter side, which I do not like, but I am sure that filling up the whole pen with ink (as eyedropper) will significantly increase the weight of the pen that would make me want to write with it. I'll try it. 
+This is my 3rd favourite pen. This is arugbly one of the smoothest nib in my collection, despite being a fine nib. The weight is little bit on the lighter side, which I do not like, but I am sure that filling up the whole pen with ink (as eyedropper) will significantly increase the weight of the pen that would make me want to write with it. I'll try it. 
 
+### Pilot Kakuno Medium
+It is my 2nd favourite pen. I bought it recently. Should have bought it earlier. There is no doubt that pilot makes one of the best fountain pens in this price point. It has a plastic body, but the quality of the plastic body is very premium. Because of the plastic body it is very lightweight, good for long writing sessions.  Only thing that I do not like about this pen is that it has holes in its cap, which results in ink drying if you do not use it for few days. It is annoying at times. The nib is very smooth, but not as smooth as Pilot Metropolitan. Also, it
+took me some time to get used to the grip, it is definitely little odd. 
 
-If you are planning to try a fountain pen, my recommend would be to go with Platinum Preppy. Although I do not like the argonomics, the very little weight and smoothest nib makes up for that. Also platinum pens can stay over a year without drying, if you keep them capped. 
+### Pilot Metropolitan
+If you are at all interested in fountain pens, you probably have heard of this pen, and for a good reason. Of all the pens that I own, and have used this one is by far the best. Pilot Metropolitan with Pilot ink is one of the smoothest writing experience I have ever gotten. The grip is one of the best, if not the best on any pen. I love how its little heavy that you do not need to put pressure but also not too heavy that your hand starts to get tired. It is also the most expensive in this
+list, definitely worth the money.  
+
+If you are planning to try a fountain pen, my recommend would be to go with Platinum Preppy, go with the medium nib, if you don't mind little thicker lines in exchange for a smoother experience. Although I do not like the argonomics, the very little weight and smoothest nib makes up for that. Also platinum pens can stay over a year without drying, if you keep them capped. 
