@@ -2,6 +2,7 @@
 title: "Human Reproduction"
 date: 2022-05-02T20:23:17+05:30
 tags: [biology]
+draft: true
 ---
 
 # Male Reproductive Organ

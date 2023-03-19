@@ -2,6 +2,7 @@
 title: "Sexual Reproduction in Flowering Plants"
 date: 2022-05-13T16:06:49+05:30
 tags: [biology]
+draft: true
 ---
 # Pre-Fertilisation Events and Structures
 ---
