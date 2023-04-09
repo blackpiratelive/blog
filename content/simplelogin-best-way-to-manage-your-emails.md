@@ -31,6 +31,3 @@ SimpleLogin is a powerful tool. And probably one of the most feature rich way of
 ## Conclusion 
 This is some of the features of simplelogin that I use everyday. It has made my life a lot easier, I can reach inbox zero easily. Also now I do not worry about spam when giving out my email to some shady websites. I love SimpleLogin and going to continue using it. If you have never used simplelogin, I urge you to try it out first. Their free plan is very generous.
 
-
-> If you have anything to comment about this post, you can mail me at [comments@blackpiratex.com](mailto:comments@blackpiratex.com), I'll be waiting for your email.
-

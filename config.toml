@@ -1,12 +1,12 @@
 baseURL = 'https://blog.blackpiratex.com/'
 languageCode = 'en-us'
-title = 'Blog'
-theme = 'minimalbp'
+title = 'Blog By BlackPirateX'
+theme = 'newcss'
 
 
 [params]
   author = 'BlackPirateX'
-  description = "A place for me to write down my thoughts, rants, reviews and study notes."
+  description = "A place for me to write down my thoughts, rants, and reviews."
   tags = 'tags'
   catagories = 'catagories'
 [imaging]

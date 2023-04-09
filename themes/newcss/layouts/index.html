@@ -1,0 +1,22 @@
+{{- partial "head.html" . -}}
+<body>
+    {{- partial "header.html" . -}}
+    <div class="all-content">
+        <h4 class="description">{{ .Site.Params.description }}</h4>
+        <div class="posts">
+            <p class="author">Press CTRL+F to search</p>
+    <p class="author">There are currently {{ len .Site.RegularPages  }} posts on this site.</p>
+<ul class="home-ul">
+                {{- range.RegularPages }}
+                <li class="post-list">
+                    <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}"><span class="time-homepage">{{ .Date.Format "2006 Jan 02" }}</span></time>
+                    &ndash;
+                    <a href="{{ .RelPermalink }}" class="homepage-blog-list">{{ .Title }}</a>
+                </li>
+            {{ end -}}
+        </ul>
+    </div>
+    {{- partial "footer.html" . -}}
+</div>
+
+<body></html>
