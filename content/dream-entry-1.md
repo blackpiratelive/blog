@@ -2,6 +2,7 @@
 title: "Dream Entry #1"
 date: 2023-04-11T23:02:18+05:30
 tags: [dream]
+draft: false
 ---
 I dreamt again.
 
