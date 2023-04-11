@@ -1,6 +1,6 @@
 ---
 title: "Fedora Doesn't Like Me"
-date: 2022-06-27T14:54:23+05:30
+date: 2023-04-11T21:00:00+05:30
 tags: [dream]
 lastmod: 2022-06-27T14:54:23+05:30
 ---
