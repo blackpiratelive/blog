@@ -15,8 +15,12 @@
     <p class="author">By {{ .Site.Params.author }}. {{ .WordCount }} words. Read by {{ .ReadingTime }} minute(s).</p>
     {{ end }}
     {{ .Content }}
-    <p class="author"><a href="https://github.com/blackpiratelive/blog/blob/main/content/{{ .File.BaseFileName }}.{{ .File.Ext }}">edit this page</a></p>
-{{ if isset .Params "tags" }}
+<hr>
+    <h4>Comment</h4>
+        <p>You can send me your comments by email at comments(at)blackpiratex.com</p>
+    </details>
+    <p class="author">Something needs a fix? <a href="https://github.com/blackpiratelive/blog/blob/main/content/{{ .File.BaseFileName }}.{{ .File.Ext }}">edit this page.</a></p>
+    {{ if isset .Params "tags" }}
     <p class="author">
         This post is tagged with:
         {{ range (.GetTerms "tags") }}
@@ -24,6 +28,7 @@
         {{ end }}
     </p>
     {{ end }}
+
 
     
 </div>
