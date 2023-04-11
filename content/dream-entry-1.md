@@ -1,7 +1,7 @@
 ---
 title: "Fedora Doesn't Like Me"
-date: 2022-06-27T14:54:23+05:30
-tags: [linux, software, rant]
+date: 2023-04-11T23:02:18+05:30
+tags: [dream]
 lastmod: 2022-06-27T14:54:23+05:30
 ---
 
