@@ -16,14 +16,6 @@
     {{ end }}
     {{ .Content }}
     <p class="author"><a href="https://github.com/blackpiratelive/blog/blob/main/content/{{ .File.BaseFileName }}.{{ .File.Ext }}">edit this page</a></p>
-    {{ if isset .Params "tags" }}
-    <p class="author">
-        This post is tagged with:
-        {{ range (.GetTerms "tags") }}
-            <span><a href="{{ .Permalink }}">{{ .LinkTitle }}</a>,</span>
-        {{ end }}
-    </p>
-    {{ end }}
 
     
 </div>
