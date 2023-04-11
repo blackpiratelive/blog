@@ -6,6 +6,8 @@ lastmod: 2022-06-27T14:54:23+05:30
 ---
 
 
+
+2023-04-11T23:02:18+05:30
 I dreamt again.
 
 This time I was running away from people of an universe of exact same people of this universe. Actually it was parallel universe, everything is exact copy. 
