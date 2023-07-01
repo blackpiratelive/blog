@@ -82,6 +82,3 @@ Despite its disadvantages you might want to try degoogling your phone, at least 
 
 Most fundamental things like calling or texting works without any hiccups. It is very much possible to live with a degoogle phone and avoid big tech as much as possible. 
 
-
-> If you have anything to comment about this post, you can mail me at [comments@blackpiratex.com](mailto:comments@blackpiratex.com), I'll be waiting for your email.
-

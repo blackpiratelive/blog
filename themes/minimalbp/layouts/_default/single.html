@@ -3,18 +3,9 @@
 <div class="all-content">
 
     <h1 class="post-title">{{ .Title }}</h1>
-    {{ if isset .Params "bookauthor" }}
-    <h3 class="bookauthor">{{ .Params.bookauthor }}</h3>
-    {{ end }}
-    {{ if isset .Params "finishedon" }}
-    <h3 class="bookauthor"> Finished on {{ .Date.Format "January 02, 2006" }}</h3>
-    {{ end }}
-    {{ if (isset .Params "book") }}
-    {{ else }}
     <p class="author">Posted on {{ .Date.Format "January 02, 2006" }}</p>
     <p class="author">By {{ .Site.Params.author }}. {{ .WordCount }} words. Read by {{ .ReadingTime }} minute(s).</p>
-    {{ end }}
-    {{ .Content }}
+   <p>{{ .Content }}</p>
     <p class="author"><a href="https://github.com/blackpiratelive/blog/blob/main/content/{{ .File.BaseFileName }}.{{ .File.Ext }}">edit this page</a></p>
     {{ if isset .Params "tags" }}
     <p class="author">

@@ -14,7 +14,9 @@
     <p class="author">Posted on {{ .Date.Format "January 02, 2006" }}</p>
     <p class="author">By {{ .Site.Params.author }}. {{ .WordCount }} words. Read by {{ .ReadingTime }} minute(s).</p>
     {{ end }}
-    {{ .Content }}
+    <br>
+    <hr>
+<div class="blog-content">{{ .Content }}</div>
 <hr>
     <h4>Comment</h4>
         <p>You can send me your comments by email at comments(at)blackpiratex.com</p>

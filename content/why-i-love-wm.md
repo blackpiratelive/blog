@@ -1,10 +1,10 @@
 ---
-title: "Why I Love Wm"
+title: "Why I Love Tiling Window Manager"
 date: 2022-03-30T20:13:52+05:30
 tags: [linux]
 ---
 
-WM stands for window manager. It is a alternative to using full blown desktop environment. [More info on ArchWiki](https://wiki.archlinux.org/title/window_manager)
+Tiling Window Manager is alternative to using full blown desktop environment. [More info on ArchWiki](https://wiki.archlinux.org/title/window_manager)
 
 I have recently started using WM, first i3 now on openbox. And absolutely love it. 
 
@@ -41,7 +41,5 @@ If you are still not convinced, I'll suggest you give it a try, take a break fro
 
 **PS:**  I use Arch BTW
 
-
-> If you have something to say about this post, mail me at [blackpirate101@protonmail.com](mailto:blackpirate101@protonmail.com). You can click above or copy the email address from below. 
-> `blackpirate101@protonmail.com`
+Post was last updated on July 1, 2023.
 

@@ -4,13 +4,6 @@ date: 2022-04-23T20:18:34+05:30
 tags: [journaling]
 ---
 
-- Privacy is better on digital Journalism
-- Easy to backup
-- More customisable
-- Less bulky
-- Easier to write
-- Automation
-- Search and Reference
 
 ## Better Privacy
 A daily journal is probably going to be one of the most private thing in your life. Because I know for a fact that, doesn't matter how close you are to me I'm never going to share my journal with anyone but me. 
@@ -39,5 +32,3 @@ You can also reference back your old journals if necessary easily. For example y
 
 ## Conclusion
 Physical form of journaling has its advantages there is no doubt about that, but personally I prefer Digital ones. The beauty of digital journalism is that it can be as much complex as you want it to be, it can perfectly as you like it. Given that you are comfortable giving your time and energy to it. If you want a place to dump your brain and trying to lower your screen on time, then maybe you would be better off with physical ones, but for most people I think digital journal is much better than physical ones. 
-> If you have anything to say about this post, you can email me at [comments@blackpiratex.com](mailto:comments@blackpiratex.com)
-
