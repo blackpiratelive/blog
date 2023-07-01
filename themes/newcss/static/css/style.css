@@ -88,3 +88,7 @@ img {
     color: var(--accent); /* Example: this will make the first letter red */
     font-size: 2em; /* Example: this will make the first letter twice as large as the surrounding text */
 }
+
+figcaption {
+    text-align: center;
+}

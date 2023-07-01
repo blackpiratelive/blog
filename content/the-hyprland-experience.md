@@ -8,6 +8,8 @@ I have been using [Arch Linux](https://archlinux.orh) with [Hyprland](https://hy
 ## Look and Feel
 Hyprland excels at it. Animations are super smooth and eyecatchy.I don't necessarily care for eye candy features, but this time made an exception. The default look is actually pretty good. I didn't have to do much ricing to get it look sexy. 
 
+
+{{< figure src="/img/hyprland.jpg" title="A picture of my Hyprland setup, taken by phone, because I cannot figure out how to take screenshot." >}}
 ## Configuration
 Configuration was not as easy as I expected. I haven't _really_ configured any tiling window manager previously, so it was bit hard for me.  But with few Google search I was easily able to pull it off. I didn't change much. Only changed DPI along with few keybindings. 
 
