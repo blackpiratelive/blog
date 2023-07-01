@@ -1,7 +1,7 @@
 ---
 title: "The Hyprland Experience"
 date: 2023-07-01T23:55:28+05:30
-tags: []
+tags: [linux, rant]
 ---
 I have been using [Arch Linux](https://archlinux.orh) with [Hyprland](https://hyprland.org/). Initially I started using because of the cool animation it has. And stayed with it since.  
 
