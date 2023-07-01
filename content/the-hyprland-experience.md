@@ -3,8 +3,6 @@ title: "The Hyprland Experience"
 date: 2023-07-01T23:55:28+05:30
 tags: []
 ---
-
-
 I have been using [Arch Linux](https://archlinux.orh) with [Hyprland](https://hyprland.org/). Initially I started using because of the cool animation it has. And stayed with it since.  
 
 ## Look and Feel
@@ -27,7 +25,7 @@ Right now I am using foot as my main terminal. I heard it can show images from [
 
 ## Other things
 I didn't have any problems with wayland. Although I had to relearn a few things. For example I cannot figure out how to change brightness of the monitor of my laptop. Using ``brill`` command now I can change brightness. Syntax for it is little bit too much complicated, need to make it into a keybinding. Also why is it that if I lower my brightness too much it would completely shut down the monitor backlight? And then I won't be able to see anything to even revert back.
-Audio also gave me some pain which can be attributed to my skill (or the lack thereof), as I installed other DE which came with their own audio configuration, which supposedly messed with my configuration. But right now I have it working smoothly. Also keyboard buttons to change volume also working flawlessly.. 
+Audio also gave me some pain which can be attributed to my skill (or the lack thereof), as I installed other DE which came with their own audio configuration, which supposedly messed with my configuration. But right now I have it working smoothly. Also keyboard buttons to change volume working flawlessly. 
 
 ## Conclusion
 Hyprland is the very first window manager that I installed from scratch and configured it myself. Despite of that it was relatively easy to install and configure. Came for the animations, staying for total experience. 
