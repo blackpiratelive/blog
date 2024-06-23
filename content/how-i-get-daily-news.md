@@ -37,7 +37,7 @@ To see the whole list of all available inbuilt recipes run the command:
 `ebook-convert --list-recipes`
 The list would be pretty big and you won't be able to locate the particular news website you want. So I suggest you use grep to filter out only the one you need. For example if I want The Hindu Newspaper I would run the following command:
 `ebook-convert --list-recipes | grep "Hindu"`
-![[img/IMG_20240623_224043.jpg]]
+{{< figure src="/img/IMG_20240623_224043.jpg" title="The Hindu recipes" >}}
 From the list shown I want "The Hindu" one specifically. 
 
 You can get your news in different formats, in my case I prefer .mobi format, as it shows progress of each article. You are free to choose any format you want. 
