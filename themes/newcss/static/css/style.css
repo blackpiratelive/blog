@@ -71,16 +71,16 @@ header {
     padding: 1rem;
 }
 .main-heading {
-    text-align: center;
+    text-align: left;
 }
 .nav-bar {
     display: flex;
-    justify-content: center;
+    justify-content: left;
     gap: 0.25rem;
 }
 footer {
     margin: auto;
-    text-align: center;
+    text-align: left;
     max-width: 700px;
     padding: 1.5rem;
 }
