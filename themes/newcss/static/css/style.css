@@ -83,6 +83,7 @@ footer {
     text-align: left;
     max-width: 700px;
     padding: 1.5rem;
+    background-color: var(--header-bg);
 }
 hr {
     background-color: var(--hr-clr);
