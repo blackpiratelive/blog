@@ -25,12 +25,19 @@
   font-weight: 700;
   font-style: normal;
 }
+@font-face {
+  font-family: 'Crimson Pro Black';
+  src: url('/fonts/CrimsonPro-Black.ttf') format('truetype');
+}
 
 
 body {
     font-family: 'Crimson Pro', serif;
     margin: 0;
 }
+h1 {
+    font-family: 'Crimson Pro Black', sans-serif; 
+   } 
 p {
     font-family: 'Crimson Pro', serif;
 }
