@@ -4,7 +4,8 @@
     --accent: #2e7d32;
     --text-on-accent: white;
     --header-bg: #f2f2f2;
-    --footer-bg-clr: #f7f7f7;
+    --footer-bg-clr-light: #e0e0e0;
+    --footer-bg-clr-dark: #1c1c1c; 
     --hr-clr: rgb(201, 201, 201);
     --dark-bg-clr: #121212;
     --dark-txt-clr: #f0f0f0;
@@ -83,7 +84,7 @@ footer {
     text-align: left;
     max-width: 700px;
     padding: 1.5rem;
-    background-color: var(--header-bg);
+    background-color: var(--footer-bg-clr-light);
 }
 hr {
     background-color: var(--hr-clr);
@@ -111,6 +112,9 @@ img {
     .blog-content > p:first-of-type::first-letter {
         color: var(--dark-accent);
     }
+    footer {
+        background-color: var(--footer-bg-clr-dark) 
+       } 
 }
 
 .blog-content > p:first-of-type::first-letter {
