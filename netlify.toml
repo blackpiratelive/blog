@@ -1,0 +1,25 @@
+# netlify.toml
+
+[build]
+  # 1. Install dependencies
+  # 2. Run the script to fetch comments
+  # 3. Run the Hugo build
+  command = "npm install && node scripts/fetch-comments.js && hugo"
+  
+  # Hugo's default publish directory is "public"
+  publish = "public"
+
+[functions]
+  # Directory where your serverless functions live
+  directory = "netlify/functions/"
+  # This tells Netlify to also install dependencies for your functions
+  node_bundler = "esbuild"
+
+# This section links the "submission-created" event from your form
+# to your "add-comment.js" serverless function.
+[[functions]]
+  # The name of the form in your HTML must match "comments"
+  name = "comments-form-handler"
+  function = "add-comment"
+  # This is the event that triggers the function
+  event = "submission-created"
