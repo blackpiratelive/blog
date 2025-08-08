@@ -1,0 +1,15 @@
+{
+  "name": "hugo-comments-system",
+  "version": "1.0.0",
+  "description": "Dependencies for Hugo comments build script.",
+  "main": "index.js",
+  "scripts": {
+    "fetch-comments": "node scripts/fetch-comments.js",
+    "build": "npm run fetch-comments && hugo"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "google-spreadsheet": "^3.3.0"
+  }
+}
