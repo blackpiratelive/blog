@@ -1,0 +1,76 @@
+{{/*
+  layouts/partials/comments.html
+  This partial handles the comment form and displays approved comments.
+  It reads from the data file created by the build script: /data/comments.json
+*/}}
+
+<div id="comments" class="comments-area">
+  <h3 class="comments-title">Comments</h3>
+
+  {{/* Get the comments data for the current page */}}
+  {{ $comments := slice }}
+  {{ if .Site.Data.comments }}
+    {{/* The key in comments.json is the page's slug. We use .File.BaseFileName for that. */}}
+    {{ $comments = index .Site.Data.comments .File.BaseFileName }}
+  {{ end }}
+
+  {{/* Display existing comments if any exist */}}
+  {{ if $comments }}
+    <ol class="comment-list">
+      {{ range $comments }}
+        <li class="comment">
+          <article class="comment-body">
+            <footer class="comment-meta">
+              <div class="comment-author">
+                <strong>{{ .name | safeHTML }}</strong>
+              </div>
+              <div class="comment-metadata">
+                {{/* Format the timestamp */}}
+                <time datetime="{{ .timestamp }}">{{ (time .timestamp).Format "January 2, 2006 at 3:04 PM" }}</time>
+              </div>
+            </footer>
+            <div class="comment-content">
+              <p>{{ .comment | safeHTML }}</p>
+            </div>
+          </article>
+        </li>
+      {{ end }}
+    </ol>
+  {{ else }}
+    <p>Be the first to leave a comment!</p>
+  {{ end }}
+
+
+  {{/* Comment Submission Form */}}
+  <div id="respond" class="comment-respond">
+    <h4 id="reply-title" class="comment-reply-title">Leave a Reply</h4>
+    {{/* The form name "comments" must match the function trigger in netlify.toml */}}
+    <form name="comments" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="comment-form">
+      
+      {{/* This hidden field is for spam protection (part of Netlify Forms) */}}
+      <p class="hidden" style="display:none;">
+        <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
+      </p>
+
+      {{/*
+        This hidden field tells your function which post the comment belongs to.
+        We use .File.BaseFileName, which is a reliable slug for the page.
+      */}}
+      <input type="hidden" name="post-slug" value="{{ .File.BaseFileName }}" />
+
+      <p class="comment-form-author">
+        <label for="name">Name <span class="required">*</span></label>
+        <input id="name" name="name" type="text" required="required">
+      </p>
+
+      <p class="comment-form-comment">
+        <label for="comment">Comment <span class="required">*</span></label>
+        <textarea id="comment" name="comment" cols="45" rows="8" required="required"></textarea>
+      </p>
+
+      <p class="form-submit">
+        <button name="submit" type="submit" id="submit" class="submit">Post Comment</button>
+      </p>
+    </form>
+  </div>
+</div>
