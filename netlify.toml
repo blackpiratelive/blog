@@ -9,18 +9,10 @@
   # Hugo's default publish directory is "public"
   publish = "public"
 
-  # The functions directory is now defined here
-  functions = "netlify/functions/"
-
-# This section now correctly configures your specific function trigger
-# without conflicting with other settings.
-[[functions]]
-  # The function file to use, relative to the functions directory.
-  # This corresponds to `netlify/functions/add-comment.js`
-  function = "add-comment"
-
-  # The event that triggers the function. This will fire for ANY form submission.
-  event = "submission-created"
+# Global settings for all of your serverless functions.
+[functions]
+  # The directory where your serverless functions live.
+  directory = "netlify/functions/"
   
-  # We specify the bundler here to ensure it's applied to this function.
+  # This bundler will be used for all functions.
   node_bundler = "esbuild"
