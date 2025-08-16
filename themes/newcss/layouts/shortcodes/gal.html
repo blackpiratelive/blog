@@ -3,7 +3,7 @@
 <div class="justified-gallery">
   {{ range $images }}
     {{/* Get the path from the "src" key and remove the leading "/" */}}
-    {{ $path := .src | strings.TrimPrefix "/" }}
+    {{ $path := .src }}
     {{/* Find the original image in the /assets folder using the cleaned path */}}
     {{ $original := resources.Get $path }}
 
