@@ -38,6 +38,7 @@ The railway tracks are on same level, (honestly i doubt i would be able to tell 
 The waterfalls are everywhere. These are not big for a  tourist attraction, I saw them from the window of the train. I was able to catch only one in my phone camera. No wonder Ranchi is called city of waterfalls. 
 
 Tunnels. I went through 2-3 railway tunnels when returning. This was quite a new experience. Those tunnels were also decently long. 
+{{< video "/video/tunnel.mp4" "my-5" >}}
 
 
 # What I learned: 
