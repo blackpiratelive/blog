@@ -16,19 +16,21 @@ Guest house for students was significantly cheaper and closer to the exam centre
 I thought I knew what plateu looks like, uh no, I did not. The landscape is so plateu like, which is exoected as this is part of Chotonagpur plateu. The part of Chotonagpur plateu that i am familier with is Vastly different from what I saw here. Most of the area is covered by trees, these are not deep forests I assume because there was trails, and agricultural lands in between. Whenever there's plain, theres either human settlement or agricultural land or both. 
 The railway tracks are on same level, (honestly i doubt i would be able to tell even if there's a slope) but the immediate srroundings change rapidly, sometimes when I look through the window the landscape is below me and I can see the top of the trees. And sometimes I see walls of rocks, marked by the breakings created by the human, obtructing the farland from my view. When I arrived at Ranchi I came through Muri, and  I returned through Barkakana, Hazaribag, Koderma, Madhupur, Chittaranjan and then Asansol. When I was on train to Ranchi I did saw those rocks that had been cut to make road for the railway track. But when I was returning there was something different. The rocks had been cut but also there were webs made up of iron(probably) that was used to hold the walls. It is so that any rocks don't fall on the track. (Or wrose fall when train is passing by.) 
 
-{{</* gal */>}}
-- file: "img/water-and-hills.jpg"
-- file: "img/hills.jpg"
-- file: "img/hills3.jpg"
-- file: "img/Hills2.jpg"
-- file: "img/trees-the-top.jpg"
-- file: "img/hills4.jpg"
-- file: "img/to-the-jungle.jpg"
-- file: "img/highway.jpg"
-- file: "img/damodar-in-jharkhand.jpg"
-- file: "img/a-jungle.jpg"
-- file: "img/a-beautiful-plateu.jpg"
-{{</* /gal */>}}
+{{< gal >}}
+[
+{ "src": "/img/water-and-hills.jpg"},
+{ "src": "/img/hills.jpg"},
+{ "src": "/img/hills3.jpg"},
+{ "src": "/img/Hills2.jpg"},
+{ "src": "/img/trees-the-top.jpg"},
+{ "src": "/img/hills4.jpg"},
+{ "src": "/img/to-the-jungle.jpg"},
+{ "src": "/img/highway.jpg"},
+{ "src": "/img/damodar-in-jharkhand.jpg"},
+{ "src": "/img/a-jungle.jpg"},
+{ "src": "/img/a-beautiful-plateu.jpg"}
+]
+{{< /gal >}}
 
 
 The waterfalls are everywhere. These are not big for a  tourist attraction, I saw them from the window of the train. I was able to catch only one in my phone camera. No wonder Ranchi is called city of waterfalls. 
