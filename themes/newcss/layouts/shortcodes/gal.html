@@ -1,10 +1,11 @@
-{{/* Parse the image data from the shortcode's inner content */}}
 {{ $images := .Inner | transform.Unmarshal }}
 
 <div class="justified-gallery">
   {{ range $images }}
-    {{/* Get the original image from the /assets folder */}}
-    {{ $original := resources.Get .file }}
+    {{/* Get the path from the "src" key and remove the leading "/" */}}
+    {{ $path := .src | strings.TrimPrefix "/" }}
+    {{/* Find the original image in the /assets folder using the cleaned path */}}
+    {{ $original := resources.Get $path }}
 
     {{ if $original }}
       {{/* Process the image for the thumbnail:
