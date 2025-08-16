@@ -2,21 +2,16 @@
 
 <div class="justified-gallery">
   {{ range $images }}
-    {{/* Get the path from the "src" key and remove the leading "/" */}}
-    {{ $path := .src }}
-    {{/* Find the original image in the /assets folder using the cleaned path */}}
-    {{ $original := resources.Get $path }}
+    {{/* Use the more flexible GetMatch to find the image in /assets */}}
+    {{ $original := resources.GetMatch .src }}
 
     {{ if $original }}
-      {{/* Process the image for the thumbnail:
-        1. Resize it to a height of 360px.
-        2. Convert to WebP format at 50% quality.
-      */}}
+      {{/* Process the image for the thumbnail */}}
       {{ $thumb := ($original.Resize "x360").Process "webp q50" }}
 
-      {{/* The <a> link points to the ORIGINAL image for the lightbox */}}
+      {{/* Link to the ORIGINAL image for the lightbox */}}
       <a href="{{ $original.RelPermalink }}" {{ with .caption }}title="{{ . }}"{{ end }}>
-        {{/* The <img> tag displays the processed WEBP thumbnail */}}
+        {{/* Display the processed WEBP thumbnail */}}
         <img src="{{ $thumb.RelPermalink }}" 
              width="{{ $thumb.Width }}" 
              height="{{ $thumb.Height }}" 
@@ -24,12 +19,11 @@
              alt="{{ .alt | default "Image" }}">
       </a>
     {{ else }}
-      {{/* Output a comment in the HTML if an image can't be found */}}
       {{ end }}
   {{ end }}
 </div>
 
-{{/* This part remains the same: it loads the required JS/CSS only once per page */}}
+{{/* This part loads the required JS/CSS only once per page */}}
 {{ if not (.Page.Scratch.Get "gal-loaded") }}
   {{ .Page.Scratch.Set "gal-loaded" true }}
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css">
