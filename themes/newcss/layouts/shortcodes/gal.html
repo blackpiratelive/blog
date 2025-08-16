@@ -1,4 +1,4 @@
-{{ $images := .Inner | transform.Unmarshal }}
+f{{ $images := .Inner | transform.Unmarshal }}
 
 <div class="justified-gallery">
   {{ range $images }}
@@ -6,16 +6,16 @@
     {{ $original := resources.GetMatch .src }}
 
     {{ if $original }}
-      {{/* Process the image for the thumbnail */}}
-      {{ $thumb := ($original.Resize "x360").Process "webp q50" }}
+      {{/* --- THIS IS THE CORRECTED LINE --- */}}
+      {{ $thumb := $original.Resize "x360" | .Process "webp q50" }}
 
       {{/* Link to the ORIGINAL image for the lightbox */}}
       <a href="{{ $original.RelPermalink }}" {{ with .caption }}title="{{ . }}"{{ end }}>
         {{/* Display the processed WEBP thumbnail */}}
-        <img src="{{ $thumb.RelPermalink }}" 
-             width="{{ $thumb.Width }}" 
-             height="{{ $thumb.Height }}" 
-             loading="lazy" 
+        <img src="{{ $thumb.RelPermalink }}"
+             width="{{ $thumb.Width }}"
+             height="{{ $thumb.Height }}"
+             loading="lazy"
              alt="{{ .alt | default "Image" }}">
       </a>
     {{ else }}
