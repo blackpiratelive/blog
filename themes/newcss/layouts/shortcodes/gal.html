@@ -8,10 +8,10 @@
 
     {{ if $original }}
       {{/* Process the image for the thumbnail:
-        1. Resize it to a height of 360px (good for a 180px row height).
+        1. Resize it to a height of 360px.
         2. Convert to WebP format at 50% quality.
       */}}
-      {{ $thumb := $original.Resize "x360".Process "webp q50" }}
+      {{ $thumb := ($original.Resize "x360").Process "webp q50" }}
 
       {{/* The <a> link points to the ORIGINAL image for the lightbox */}}
       <a href="{{ $original.RelPermalink }}" {{ with .caption }}title="{{ . }}"{{ end }}>
