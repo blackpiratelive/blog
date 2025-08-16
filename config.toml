@@ -13,3 +13,9 @@ theme = 'newcss'
   anchor = 'Smart'
   quality = 25
   resampleFilter = 'Box'
+
+
+[security]
+  [security.funcs]
+    # Allows the "resources.Get" function we need for the gallery
+    get = ["resources"]
