@@ -16,9 +16,15 @@ export default async function handler(req, res) {
 
   try {
     const rs = await db.execute({
-      sql: "SELECT name, message, created_at FROM comments WHERE slug = ? AND approved = 1 ORDER BY created_at DESC",
+      sql: `
+        SELECT id, name, message, website, created_at, parent_id
+        FROM comments
+        WHERE slug = ? AND approved = 1
+        ORDER BY created_at ASC
+      `,
       args: [slug],
     });
+
     return res.status(200).json(rs.rows);
   } catch (err) {
     console.error("Failed to fetch approved comments:", err);

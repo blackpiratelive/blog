@@ -1,4 +1,3 @@
-// api/admin-comments.js
 import { createClient } from "@libsql/client";
 import crypto from "crypto";
 
@@ -8,12 +7,13 @@ const db = createClient({
   schemaSync: false,
 });
 
+// In-memory session tokens (reset on cold start)
 const sessions = new Set();
 
 export default async function handler(req, res) {
   res.setHeader("Content-Type", "text/html");
 
-  // Parse body
+  // Parse POST body
   const body = await new Promise((resolve) => {
     if (req.method !== "POST") return resolve({});
     let data = "";
@@ -33,7 +33,7 @@ export default async function handler(req, res) {
   const sessionToken = cookies.session || null;
   let authenticated = sessionToken && sessions.has(sessionToken);
 
-  // --- Handle login ---
+  // --- Login ---
   if (req.method === "POST" && body.action === "login") {
     if (body.password === process.env.ADMIN_PASSWORD) {
       const token = crypto.randomBytes(32).toString("hex");
@@ -44,48 +44,59 @@ export default async function handler(req, res) {
         `session=${token}; Path=/; HttpOnly; Secure; SameSite=Strict`
       );
     } else {
-      return res.end(`
-        <h2>Invalid password</h2>
-        <a href='/api/admin-comments'>Try again</a>
-      `);
+      return res.end("<h2>Invalid password</h2><a href='/api/dashboard'>Try again</a>");
     }
   }
 
-  // --- Handle logout ---
+  // --- Logout ---
   if (req.method === "POST" && body.action === "logout" && authenticated) {
     sessions.delete(sessionToken);
     res.setHeader("Set-Cookie", "session=; Path=/; HttpOnly; Max-Age=0");
-    return res.end("<h2>Logged out</h2><a href='/api/admin-comments'>Login again</a>");
+    return res.end("<h2>Logged out</h2><a href='/api/dashboard'>Login again</a>");
   }
 
-  // --- Handle delete ---
+  // --- Delete ---
   if (req.method === "POST" && body.action === "delete" && authenticated) {
-    await db.execute({
-      sql: "DELETE FROM comments WHERE id = ?",
-      args: [body.id],
-    });
+    await db.execute({ sql: "DELETE FROM comments WHERE id = ?", args: [body.id] });
   }
 
-  // --- Handle approve ---
+  // --- Approve ---
   if (req.method === "POST" && body.action === "approve" && authenticated) {
-    await db.execute({
-      sql: "UPDATE comments SET approved = 1 WHERE id = ?",
-      args: [body.id],
-    });
+    await db.execute({ sql: "UPDATE comments SET approved = 1 WHERE id = ?", args: [body.id] });
   }
 
-  // --- Handle redeploy ---
+  // --- Reply ---
+  if (req.method === "POST" && body.action === "reply" && authenticated) {
+    const parentId = body.id;
+    const message = body.message;
+    if (message && parentId) {
+      const parent = await db.execute({
+        sql: "SELECT slug FROM comments WHERE id = ?",
+        args: [parentId],
+      });
+      if (parent.rows.length > 0) {
+        const slug = parent.rows[0].slug;
+        await db.execute({
+          sql: `INSERT INTO comments (slug, name, message, website, approved, parent_id)
+                VALUES (?, 'Sudip', ?, 'blackpiratex.com', 1, ?)`,
+          args: [slug, message, parentId],
+        });
+      }
+    }
+  }
+
+  // --- Redeploy ---
   if (req.method === "POST" && body.action === "redeploy" && authenticated) {
     try {
       await fetch(process.env.VERCEL_DEPLOY_HOOK_URL, { method: "POST" });
-      return res.end("<h2>Redeploy triggered ✅</h2><a href='/api/admin-comments'>Back</a>");
+      return res.end("<h2>Redeploy triggered ✅</h2><a href='/api/dashboard'>Back</a>");
     } catch (err) {
       console.error("Failed to redeploy:", err);
       return res.end("<h2>Failed to trigger redeploy ❌</h2>");
     }
   }
 
-  // --- Not logged in: show login form ---
+  // --- Not authenticated: show login ---
   if (!authenticated) {
     return res.end(`
       <style>
@@ -106,7 +117,7 @@ export default async function handler(req, res) {
     `);
   }
 
-  // --- Logged in: show dashboard ---
+  // --- Authenticated: dashboard ---
   const rs = await db.execute(
     "SELECT id, slug, name, email, website, message, created_at, approved FROM comments ORDER BY created_at DESC"
   );
@@ -140,6 +151,12 @@ export default async function handler(req, res) {
             <input type="hidden" name="id" value="${c.id}">
             <button class="btn-delete" type="submit">Delete</button>
           </form>
+          <form method="POST" style="display:inline">
+            <input type="hidden" name="action" value="reply">
+            <input type="hidden" name="id" value="${c.id}">
+            <input type="text" name="message" placeholder="Reply..." required>
+            <button class="btn-reply" type="submit">Reply</button>
+          </form>
         </td>
       </tr>
     `
@@ -157,12 +174,14 @@ export default async function handler(req, res) {
       .btn-redeploy { background: #0070f3; color: white; }
       .btn-approve { background: #2ecc71; color: white; }
       .btn-delete { background: #e74c3c; color: white; }
+      .btn-reply { background: #f39c12; color: white; }
       table { width: 100%; border-collapse: collapse; background: white; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
-      th, td { padding: 0.75rem; border-bottom: 1px solid #ddd; text-align: left; }
+      th, td { padding: 0.75rem; border-bottom: 1px solid #ddd; text-align: left; vertical-align: top; }
       th { background: #f0f0f0; }
       tr:hover { background: #f9f9f9; }
       .approved { color: #2ecc71; font-weight: bold; }
       .pending { color: #e67e22; font-weight: bold; }
+      input[type=text] { padding: 0.3rem; margin-right: 0.3rem; }
     </style>
 
     <h2>Comments Dashboard</h2>
