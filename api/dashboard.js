@@ -19,7 +19,7 @@ export default async function handler(req, res) {
     req.on("data", (chunk) => (data += chunk));
     req.on("end", () => resolve(Object.fromEntries(new URLSearchParams(data))));
   });
-
+  
   // Cookie sessions
   const cookies = Object.fromEntries(
     (req.headers.cookie || "")
@@ -84,6 +84,12 @@ export default async function handler(req, res) {
         sessions.delete(sessionToken);
         res.setHeader("Set-Cookie", "session=; Path=/; HttpOnly; Max-Age=0");
         return res.end("logout-ok");
+        
+        case "export":
+        const all = await db.execute("SELECT * FROM comments ORDER BY created_at ASC");
+        res.setHeader("Content-Type", "application/json");
+        res.setHeader("Content-Disposition", "attachment; filename=comments-export.json");
+        return res.end(JSON.stringify(all.rows, null, 2));
     }
   }
 
@@ -184,6 +190,7 @@ export default async function handler(req, res) {
     </style>
 
     <h2>Comments Dashboard</h2>
+    <button onclick="doExport()" class="btn-toggle">⬇️ Export Comments</button>
     <button onclick="doAction('redeploy')" class="btn-toggle">🔄 Redeploy Site</button>
     <button onclick="doAction('logout')" class="btn-delete">Logout</button>
 
@@ -218,6 +225,20 @@ export default async function handler(req, res) {
           if (type==='approve') return showToast('Approved ✅', true);
         }
       }
+      
+      async function doExport() {
+    const res = await fetch('', { method:'POST', body:new URLSearchParams({ api:'export' }) });
+    if (res.ok) {
+      const blob = await res.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'comments-export.json';
+      a.click();
+      window.URL.revokeObjectURL(url);
+      showToast('Exported ✅');
+    }
+  }
 
       async function sendReply(id) {
         const msg = document.getElementById('reply-msg-'+id).value;
