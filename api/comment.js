@@ -4,7 +4,7 @@ import { createClient } from "@libsql/client";
 const db = createClient({
   url: process.env.TURSO_DATABASE_URL,
   authToken: process.env.TURSO_AUTH_TOKEN,
-  schemaSync: false, // prevents migration job check
+  schemaSync: false,
 });
 
 export default async function handler(req, res) {
@@ -24,10 +24,10 @@ export default async function handler(req, res) {
     });
   });
 
-  const { slug, name, message, website } = body;
+  const { slug, name, message, email, website, honeypot } = body;
 
-  // 🪤 Honeypot: if bots fill out "website", reject
-  if (website) {
+  // 🪤 Honeypot: if bots fill out this hidden field, reject
+  if (honeypot) {
     return res.status(400).send("Spam detected");
   }
 
@@ -37,12 +37,12 @@ export default async function handler(req, res) {
 
   try {
     await db.execute({
-      sql: "INSERT INTO comments (slug, name, message) VALUES (?, ?, ?)",
-      args: [slug, name, message],
+      sql: "INSERT INTO comments (slug, name, message, email, website) VALUES (?, ?, ?, ?, ?)",
+      args: [slug, name, message, email || null, website || null],
     });
 
-    // Redirect back to blog post after submission
-    return res.redirect(302, req.headers.referer || "/");
+    // Redirect back with success flag
+    return res.redirect(302, `${req.headers.referer || "/"}?comment=success`);
   } catch (err) {
     console.error("Failed to insert comment:", err);
     return res.status(500).send("Failed to insert comment");
