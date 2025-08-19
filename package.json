@@ -1,15 +1,11 @@
 {
-  "name": "hugo-comments-system",
+  "name": "blog-comments-api",
   "version": "1.0.0",
-  "description": "Dependencies for Hugo comments build script.",
+  "description": "Serverless functions for blog.blackpiratex.com (likes + comments)",
   "main": "index.js",
-  "scripts": {
-    "fetch-comments": "node scripts/fetch-comments.js",
-    "build": "npm run fetch-comments && hugo"
-  },
-  "author": "",
-  "license": "ISC",
+  "license": "MIT",
+  "type": "module",
   "dependencies": {
-    "google-spreadsheet": "^3.3.0"
+    "@libsql/client": "latest"
   }
 }
