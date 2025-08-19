@@ -12,17 +12,15 @@ const sessions = new Set();
 export default async function handler(req, res) {
   res.setHeader("Content-Type", "text/html");
 
-  // Parse body for API-like POSTs
+  // Parse body
   const body = await new Promise((resolve) => {
     if (req.method !== "POST") return resolve({});
     let data = "";
     req.on("data", (chunk) => (data += chunk));
-    req.on("end", () => {
-      resolve(Object.fromEntries(new URLSearchParams(data)));
-    });
+    req.on("end", () => resolve(Object.fromEntries(new URLSearchParams(data))));
   });
 
-  // Cookie-based session
+  // Cookie sessions
   const cookies = Object.fromEntries(
     (req.headers.cookie || "")
       .split(";")
@@ -32,7 +30,7 @@ export default async function handler(req, res) {
   const sessionToken = cookies.session || null;
   let authenticated = sessionToken && sessions.has(sessionToken);
 
-  // --- Handle login ---
+  // --- Login ---
   if (req.method === "POST" && body.action === "login") {
     if (body.password === process.env.ADMIN_PASSWORD) {
       const token = crypto.randomBytes(32).toString("hex");
@@ -47,15 +45,25 @@ export default async function handler(req, res) {
     }
   }
 
-  // API-like routes for JS fetch
+  // API actions
   if (authenticated && req.method === "POST" && body.api) {
     switch (body.api) {
       case "approve":
         await db.execute("UPDATE comments SET approved = 1 WHERE id = ?", [body.id]);
         return res.end("ok");
+
       case "delete":
-        await db.execute("DELETE FROM comments WHERE id = ?", [body.id]);
-        return res.end("ok");
+        await db.execute("UPDATE comments SET deleted = 1 WHERE id = ?", [body.id]);
+        // permanently delete after 10s
+        setTimeout(async () => {
+          await db.execute("DELETE FROM comments WHERE id = ? AND deleted = 1", [body.id]);
+        }, 10000);
+        return res.end("deleted-soft");
+
+      case "undo":
+        await db.execute("UPDATE comments SET deleted = 0 WHERE id = ?", [body.id]);
+        return res.end("undo-ok");
+
       case "reply":
         const parent = await db.execute("SELECT slug FROM comments WHERE id = ?", [body.id]);
         if (parent.rows.length > 0) {
@@ -67,13 +75,19 @@ export default async function handler(req, res) {
           });
         }
         return res.end("ok");
+
       case "redeploy":
         await fetch(process.env.VERCEL_DEPLOY_HOOK_URL, { method: "POST" });
-        return res.end("ok");
+        return res.end("redeploy-ok");
+
+      case "logout":
+        sessions.delete(sessionToken);
+        res.setHeader("Set-Cookie", "session=; Path=/; HttpOnly; Max-Age=0");
+        return res.end("logout-ok");
     }
   }
 
-  // --- Show login form if not authenticated ---
+  // --- Login screen ---
   if (!authenticated) {
     return res.end(`
       <style>
@@ -91,12 +105,11 @@ export default async function handler(req, res) {
     `);
   }
 
-  // --- Authenticated: Dashboard view ---
+  // --- Dashboard ---
   const rs = await db.execute(
-    "SELECT id, slug, name, email, website, message, created_at, approved, parent_id FROM comments ORDER BY created_at DESC"
+    "SELECT id, slug, name, email, website, message, created_at, approved, parent_id, deleted FROM comments ORDER BY created_at DESC"
   );
 
-  // Separate top-level and replies
   const comments = rs.rows.filter((c) => !c.parent_id);
   const replies = rs.rows.filter((c) => c.parent_id);
 
@@ -106,15 +119,20 @@ export default async function handler(req, res) {
       const replyRows = childReplies
         .map(
           (r) => `
-            <div class="reply">
+            <div class="reply ${r.deleted ? "deleted" : ""}">
               <strong>${r.name}</strong>: ${r.message} <small>(${r.created_at})</small>
+              ${
+                r.deleted
+                  ? `<button onclick="doAction('undo', ${r.id})">Undo</button>`
+                  : `<button onclick="doAction('delete', ${r.id})" class="btn-delete">Delete</button>`
+              }
             </div>
           `
         )
         .join("");
 
       return `
-        <tr>
+        <tr class="${c.deleted ? "deleted" : ""}">
           <td>${c.id}</td>
           <td>${c.slug}</td>
           <td>${c.name}</td>
@@ -125,21 +143,19 @@ export default async function handler(req, res) {
           <td class="${c.approved ? "approved" : "pending"}">${c.approved ? "Approved" : "Pending"}</td>
           <td>
             ${
-              !c.approved
-                ? `<button onclick="action('approve', ${c.id})" class="btn-approve">Approve</button>`
-                : ""
-            }
-            <button onclick="action('delete', ${c.id})" class="btn-delete">Delete</button>
-            <button onclick="toggleReplyBox(${c.id})" class="btn-reply">Reply</button>
-            <div id="reply-box-${c.id}" class="reply-box" style="display:none;">
-              <input type="text" id="reply-msg-${c.id}" placeholder="Type reply...">
-              <button onclick="sendReply(${c.id})">Send</button>
-            </div>
-            ${
-              replyRows
-                ? `<button onclick="toggleReplies(${c.id})" class="btn-toggle">Show Replies (${childReplies.length})</button>
-                   <div id="replies-${c.id}" class="replies" style="display:none;">${replyRows}</div>`
-                : ""
+              c.deleted
+                ? `<button onclick="doAction('undo', ${c.id})">Undo</button>`
+                : `
+                  ${!c.approved ? `<button onclick="doAction('approve', ${c.id})" class="btn-approve">Approve</button>` : ""}
+                  <button onclick="doAction('delete', ${c.id})" class="btn-delete">Delete</button>
+                  <button onclick="toggleReplyBox(${c.id})" class="btn-reply">Reply</button>
+                  <div id="reply-box-${c.id}" class="reply-box" style="display:none;">
+                    <input type="text" id="reply-msg-${c.id}" placeholder="Type reply...">
+                    <button onclick="sendReply(${c.id})">Send</button>
+                  </div>
+                  ${replyRows ? `<button onclick="toggleReplies(${c.id})" class="btn-toggle">Show Replies (${childReplies.length})</button>
+                                 <div id="replies-${c.id}" class="replies" style="display:none;">${replyRows}</div>` : ""}
+                `
             }
           </td>
         </tr>
@@ -162,30 +178,55 @@ export default async function handler(req, res) {
       .pending { color:#e67e22; font-weight:bold; }
       .reply-box { margin-top:0.5rem; }
       .reply { margin-left:1rem; padding:0.3rem; background:#f9f9f9; border-left:2px solid #ddd; }
+      .deleted { opacity:0.5; text-decoration:line-through; }
+      #toast { position:fixed; bottom:20px; right:20px; background:#333; color:white; padding:10px 20px; border-radius:4px; opacity:0; transition:opacity 0.3s; }
+      #toast.show { opacity:1; }
     </style>
 
     <h2>Comments Dashboard</h2>
-    <button onclick="action('redeploy')" class="btn-toggle">🔄 Redeploy Site</button>
-    <button onclick="action('logout')" class="btn-delete">Logout</button>
+    <button onclick="doAction('redeploy')" class="btn-toggle">🔄 Redeploy Site</button>
+    <button onclick="doAction('logout')" class="btn-delete">Logout</button>
 
     <table>
       <tr><th>ID</th><th>Slug</th><th>Name</th><th>Email</th><th>Website</th><th>Message</th><th>Created</th><th>Status</th><th>Actions</th></tr>
       ${rows}
     </table>
 
+    <div id="toast"></div>
+
     <script>
-      async function action(type, id) {
+      function showToast(msg, thenReload=false, thenRedirect=null) {
+        const t = document.getElementById('toast');
+        t.textContent = msg;
+        t.classList.add('show');
+        setTimeout(() => {
+          t.classList.remove('show');
+          if (thenReload) location.reload();
+          if (thenRedirect) location.href = thenRedirect;
+        }, 2000);
+      }
+
+      async function doAction(type, id) {
         const data = new URLSearchParams({ api:type, id });
         const res = await fetch('', { method:'POST', body:data });
-        if (res.ok) location.reload();
+        if (res.ok) {
+          const result = await res.text();
+          if (type==='logout') return showToast('Logged out ✅', false, '/api/dashboard');
+          if (result==='redeploy-ok') return showToast('Redeploy triggered ✅');
+          if (result==='deleted-soft') return showToast('Deleted (undo available) ⚠️', true);
+          if (result==='undo-ok') return showToast('Undo successful ✅', true);
+          if (type==='approve') return showToast('Approved ✅', true);
+        }
       }
+
       async function sendReply(id) {
         const msg = document.getElementById('reply-msg-'+id).value;
         if (!msg) return;
         const data = new URLSearchParams({ api:'reply', id, message:msg });
         const res = await fetch('', { method:'POST', body:data });
-        if (res.ok) location.reload();
+        if (res.ok) showToast('Reply sent ✅', true);
       }
+
       function toggleReplyBox(id) {
         const el = document.getElementById('reply-box-'+id);
         el.style.display = el.style.display === 'none' ? 'block' : 'none';
