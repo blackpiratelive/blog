@@ -1,0 +1,20 @@
+<div id="comments">
+  <h3>Comments</h3>
+
+  {{ $slug := .File.BaseFileName }}
+  {{ $url := printf "https://blog.blackpiratex.com/api/comments-approved?slug=%s" $slug }}
+  {{ $comments := getJSON $url }}
+
+  {{ if $comments }}
+    <ul>
+      {{ range $comments }}
+        <li>
+          <strong>{{ .name }}</strong> ({{ .created_at }}):<br>
+          {{ .message }}
+        </li>
+      {{ end }}
+    </ul>
+  {{ else }}
+    <p>No comments yet.</p>
+  {{ end }}
+</div>
