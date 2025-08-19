@@ -8,10 +8,24 @@
   {{ if $comments }}
     <ul>
       {{ range $comments }}
-        <li>
-          <strong>{{ .name }}</strong> ({{ .created_at }}):<br>
-          {{ .message }}
-        </li>
+        {{ if not .parent_id }}
+          <li>
+            <strong>{{ .name }}</strong> ({{ .created_at }}):<br>
+            {{ .message }}
+
+            {{ $replies := where $comments "parent_id" .id }}
+            {{ if $replies }}
+              <ul>
+                {{ range $replies }}
+                  <li>
+                    <strong>{{ .name }}</strong> ({{ .created_at }}):<br>
+                    {{ .message }}
+                  </li>
+                {{ end }}
+              </ul>
+            {{ end }}
+          </li>
+        {{ end }}
       {{ end }}
     </ul>
   {{ else }}
