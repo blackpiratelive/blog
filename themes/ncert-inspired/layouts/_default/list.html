@@ -1,0 +1,16 @@
+{{- partial "head.html" . -}}
+{{- partial "header.html" . -}}
+<div class="all-content">
+
+    <h1>Items with
+        {{ .Title }}
+        {{ .Data.Singular }}</h1>
+    <ul>
+        {{- range.Pages }}
+        <li>
+            <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "2006 Jan 02" }}</time>
+            &ndash;
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </li>
+    {{ end -}}
+</ul>

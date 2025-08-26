@@ -1,0 +1,205 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Title }}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles to mimic NCERT book feel */
+        body {
+            font-family: 'Tiro Devanagari Hindi', serif;
+            background-color: #fdfdf2; /* Off-white, slightly yellow paper color */
+            color: #333;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Roboto Slab', serif;
+            font-weight: 700;
+        }
+        .ncert-header {
+            background-color: #f2e8c9; /* Light yellow header */
+            border-bottom: 4px solid #d4cba5;
+        }
+        .ncert-main-content {
+            line-height: 1.8;
+        }
+        .ncert-main-content a {
+            color: #3b82f6;
+            text-decoration: underline;
+        }
+        .ncert-main-content a:hover {
+            color: #1d4ed8;
+        }
+        .ncert-keyword {
+            font-weight: 700;
+            color: #4a7c59; /* A muted green for keywords */
+        }
+        .ncert-sidebar-box {
+            background-color: #fef9c3; /* Light yellow for sidebar boxes */
+            border: 1px solid #fde047;
+        }
+        .ncert-sidebar-box a {
+            color: #4a7c59;
+            font-weight: 600;
+        }
+        .ncert-sidebar-box a:hover {
+            text-decoration: underline;
+        }
+        /* Styles for the comment form */
+        .comment-form input[type="text"],
+        .comment-form input[type="email"],
+        .comment-form input[type="url"],
+        .comment-form textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #d4cba5;
+            border-radius: 4px;
+            background-color: #fff;
+            margin-top: 4px;
+        }
+        .comment-form button {
+            background-color: #4a7c59;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            font-family: 'Roboto Slab', serif;
+        }
+        .comment-form button:hover {
+            background-color: #3f684c;
+        }
+        .comment-list ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .comment-list li {
+            background-color: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Main Container -->
+    <div class="container mx-auto max-w-5xl p-4 sm:p-8">
+
+        <!-- Header Section -->
+        <header class="ncert-header p-4 rounded-t-lg mb-6">
+            <h1 class="text-2xl md:text-3xl text-gray-800">{{ .Title }}</h1>
+            {{ if isset .Params "bookauthor" }}
+            <h3 class="text-lg text-gray-600">{{ .Params.bookauthor }}</h3>
+            {{ end }}
+            {{ if isset .Params "finishedon" }}
+            <h3 class="text-lg text-gray-600">Finished on {{ .Date.Format "January 02, 2006" }}</h3>
+            {{ end }}
+            {{ if not .Params.book }}
+            <p class="text-sm text-gray-500 mt-2">
+                Posted on {{ .Date.Format "January 02, 2006" }} by {{ .Site.Params.author }}.
+                {{ .WordCount }} words. Read in about {{ .ReadingTime }} minute(s).
+            </p>
+            {{ end }}
+        </header>
+
+        <!-- Main Content Area -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+            <!-- Left Column: Main Article -->
+            <main class="lg:col-span-2 ncert-main-content text-lg">
+                <div class="prose lg:prose-xl max-w-none">
+                    {{ .Content }}
+                </div>
+            </main>
+
+            <!-- Right Column: Sidebar -->
+            <aside class="lg:col-span-1 space-y-6">
+                
+                <!-- First Sidebar Box: Comments & Edits -->
+                <div class="ncert-sidebar-box p-5 rounded-lg shadow">
+                    <h4 class="text-lg font-bold mb-2 text-yellow-800">Comment & Contribute</h4>
+                    <p class="text-base mb-3">You can send me your comments by email at comments(at)blackpiratex.com</p>
+                    <p class="text-base">Something needs a fix? <a href="https://github.com/blackpiratelive/blog/blob/main/content/{{ .File.BaseFileName }}.{{ .File.Ext }}">Edit this page.</a></p>
+                </div>
+
+                <!-- Second Sidebar Box: Comment Form and Display -->
+                <div class="ncert-sidebar-box p-5 rounded-lg shadow">
+                    <!-- Leave a Comment Partial -->
+                    <div id="comments" class="comment-form">
+                        <h4 class="text-lg font-bold mb-3 text-yellow-800">Leave a Comment</h4>
+                        <script>
+                            if (window.location.search.includes("comment=success")) {
+                                document.write('<p style="color: green;">✅ Your comment has been submitted successfully!</p>');
+                            }
+                        </script>
+                        <form method="POST" action="https://blog.blackpiratex.com/api/comment">
+                            <input type="hidden" name="slug" value="{{ .File.BaseFileName }}">
+                            <label class="block mb-3">Name (required):<br><input type="text" name="name" required></label>
+                            <label class="block mb-3">Comment (required):<br><textarea name="message" required rows="4"></textarea></label>
+                            <label class="block mb-3">Email (optional):<br><input type="email" name="email"></label>
+                            <label class="block mb-3">Website (optional):<br><input type="url" name="website"></label>
+                            <div style="display:none;"><label>Leave this empty:<br><input type="text" name="honeypot"></label></div>
+                            <button type="submit">Post Comment</button>
+                        </form>
+                    </div>
+
+                    <hr class="my-6 border-gray-300">
+
+                    <!-- Show Comments Partial -->
+                    <div id="show-comments" class="comment-list">
+                        <h4 class="text-lg font-bold mb-3 text-yellow-800">Comments</h4>
+                        {{ $slug := .File.BaseFileName }}
+                        {{ $url := printf "https://blog.blackpiratex.com/api/comments-approved?slug=%s" $slug }}
+                        {{ $comments := getJSON $url }}
+                        {{ if $comments }}
+                            <ul>
+                            {{ range $comments }}
+                                {{ if not .parent_id }}
+                                <li>
+                                    <strong>{{ .name }}</strong> <span class="text-sm text-gray-500">({{ .created_at }})</span>:<br>
+                                    <p class="pl-2">{{ .message | safeHTML }}</p>
+                                    {{ $replies := where $comments "parent_id" .id }}
+                                    {{ if $replies }}
+                                    <ul class="ml-4 mt-2">
+                                        {{ range $replies }}
+                                        <li>
+                                            <strong>{{ .name }}</strong> <span class="text-sm text-gray-500">({{ .created_at }})</span>:<br>
+                                            <p class="pl-2">{{ .message | safeHTML }}</p>
+                                        </li>
+                                        {{ end }}
+                                    </ul>
+                                    {{ end }}
+                                </li>
+                                {{ end }}
+                            {{ end }}
+                            </ul>
+                        {{ else }}
+                            <p>No comments yet.</p>
+                        {{ end }}
+                    </div>
+                </div>
+
+                {{ if isset .Params "tags" }}
+                <div class="ncert-sidebar-box p-5 rounded-lg shadow">
+                    <h4 class="text-lg font-bold mb-2 text-yellow-800">Tags</h4>
+                    <p class="text-base">
+                        {{ range $i, $e := (.GetTerms "tags") }}{{ if $i }}, {{ end }}<a href="{{ .Permalink }}">{{ .LinkTitle }}</a>{{ end }}
+                    </p>
+                </div>
+                {{ end }}
+
+            </aside>
+        </div>
+        
+        <!-- Footer -->
+        <footer class="text-center text-gray-500 mt-12 py-4 border-t-2">
+             {{- partial "footer.html" . -}}
+        </footer>
+    </div>
+</body>
+</html>

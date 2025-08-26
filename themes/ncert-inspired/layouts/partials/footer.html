@@ -1,0 +1,44 @@
+
+<hr>
+<footer>
+<div class="footer">
+    <nav>
+<div class="nav-bar">
+    <a href="/">Home</a> /
+<a href="/tags">Tags</a> /
+<a href="https://gallery.blackpiratex.com">Gallery</a> /
+<a href="http://notes.blackpiratex.com">Notes</a> /
+<a href="https://status.blackpiratex.com/" class="status-nav">Status</a>
+</div>
+    </nav>
+
+<!-- Cap'n blackpiratex's HTML-Only WebRing Widget -->
+<div style="background-color: #fdf5e6; border: 4px solid #8B4513; border-radius: 8px; padding: 16px; font-family: 'IM Fell English SC', serif; text-align: center; max-width: 320px; margin: 20px auto; box-shadow: 5px 5px 10px rgba(0,0,0,0.3);">
+  <h3 style="font-size: 1.5rem; color: #8B0000; margin: 0 0 12px 0; padding-bottom: 5px; border-bottom: 2px dashed #8B4513; font-weight: normal;">Cap'n blackpiratex's WebRing</h3>
+  <nav style="display: flex; justify-content: space-around; align-items: center; font-family: 'Gaegu', cursive, sans-serif;">
+    <a href="https://webring.blackpiratex.com/.netlify/functions/webring?action=previous&url=https://blog.blackpiratex.com" style="text-decoration: none; color: #4a2c2a; font-weight: bold; font-size: 1.1rem;">← Previous Port</a>
+    <a href="https://webring.blackpiratex.com/.netlify/functions/webring?action=random&url=https://blog.blackpiratex.com" style="text-decoration: none; color: #4a2c2a; font-weight: bold; font-size: 1.1rem;">Random Isle</a>
+    <a href="https://webring.blackpiratex.com/.netlify/functions/webring?action=next&url=https://blog.blackpiratex.com" style="text-decoration: none; color: #4a2c2a; font-weight: bold; font-size: 1.1rem;">Next Port →</a>
+  </nav>
+</div>
+    
+    <p><a href="/index.xml"><button>Subscribe via RSS</button></a></p>
+Website is made using <a href="https://gohugo.io">Hugo</a> and love on <a href="https://archlinux.org/">Arch Linux</a> with <a href="https://hyprland.org/">Hyprland</a>. Follow me on <a rel="me" href="https://mastodon.social/@pizzle">Mastodon</a>.
+    <p>By <a href="https://blackpiratex.com/">BlackPirateX</a></p>
+</div>
+</footer>
+<script>
+(async function() {
+  try {
+    const endpoint = 'https://simpler-69bpx.vercel.app/api/bpx';
+    const payload = { data: { u: window.location.href, r: document.referrer } };
+    await fetch(endpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+      mode: 'cors'
+    });
+  } catch(e) { console.error('Analytics script failed:', e); }
+})();
+</script>
+

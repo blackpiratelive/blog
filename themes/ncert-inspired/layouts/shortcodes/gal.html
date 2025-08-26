@@ -1,0 +1,34 @@
+{{/* layouts/shortcodes/gal.html */}}
+
+{{ $images := .Inner | transform.Unmarshal }}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css" integrity="sha512-C7sM0v0m3Z3rcoVwG1s5m4R9Bq0s5sl+W3Kvov6o5anZbqPZyox+2U6OvbPRQ1/UsYa4hYzLPfA9GjJQW4+i7g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<div id="justified-gallery-{{ .Ordinal }}" class="justified-gallery">
+  {{ range $images }}
+    {{ $img := resources.GetMatch .src }}
+    {{ if $img }}
+      {{ $resized := $img.Resize "800x webp q50" }}
+      <a href="{{ $img.RelPermalink }}">
+        <img src="{{ $resized.RelPermalink }}" alt="Gallery Image" loading="lazy">
+      </a>
+    {{ else }}
+      <a href="{{ .src }}">
+        <img src="{{ .src }}" alt="Gallery Image" loading="lazy">
+      </a>
+    {{ end }}
+  {{ end }}
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-oQ3hYmX2w0ZP2F5A3W9V6HPvZKkzPbCB67gN1ZlMRJ3eEVn4HhF87JwQ0dfnyL2t0uYzjK7RzF6cB4v5vPpG0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" integrity="sha512-jC93Xyhl6TIB6mGnF0u1CrxYSG7bWQzO6MqlCGr2JwsR8r3uQq9XrPCOhrbnE99dO5FjvX/q7w0lTmywqxiLhw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    $('#justified-gallery-{{ .Ordinal }}').justifiedGallery({
+      rowHeight: 220,
+      margins: 5,
+      lastRow: 'nojustify'
+    });
+  });
+</script>
