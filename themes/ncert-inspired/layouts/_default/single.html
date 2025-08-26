@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Tiro+Devanagari+Hindi&family=Source+Code+Pro&display=swap" rel="stylesheet">
     <style>
         /* Custom styles to mimic NCERT book feel */
         body {
@@ -33,9 +33,57 @@
         .ncert-main-content a:hover {
             color: #1d4ed8;
         }
-        .ncert-keyword {
+        /* Styling for headings within the main content */
+        .ncert-main-content h2 {
+            font-size: 1.75rem; /* ~28px */
+            margin-top: 1.5em;
+            margin-bottom: 0.75em;
+            padding-bottom: 0.3em;
+            border-bottom: 2px solid #d4cba5;
+        }
+        .ncert-main-content h3 {
+            font-size: 1.4rem; /* ~22px */
+            margin-top: 1.25em;
+            margin-bottom: 0.6em;
+        }
+        .ncert-main-content h4 {
+            font-size: 1.15rem; /* ~18px */
+            margin-top: 1em;
+            margin-bottom: 0.5em;
             font-weight: 700;
-            color: #4a7c59; /* A muted green for keywords */
+        }
+        /* Styling for lists */
+        .ncert-main-content ul, .ncert-main-content ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1em;
+            list-style-position: outside;
+        }
+        .ncert-main-content ul {
+            list-style-type: disc;
+        }
+        .ncert-main-content ol {
+            list-style-type: decimal;
+        }
+        .ncert-main-content li {
+            margin-bottom: 0.5em;
+        }
+        /* Styling for code blocks */
+        .ncert-main-content pre {
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 1em;
+            overflow-x: auto;
+            margin-bottom: 1.5em;
+            font-family: 'Source Code Pro', monospace;
+        }
+        /* Styling for inline code */
+        .ncert-main-content :not(pre) > code {
+            background-color: #f2e8c9;
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            font-family: 'Source Code Pro', monospace;
+            font-size: 0.9em;
         }
         .ncert-sidebar-box {
             background-color: #fef9c3; /* Light yellow for sidebar boxes */
@@ -112,9 +160,7 @@
 
             <!-- Left Column: Main Article -->
             <main class="lg:col-span-2 ncert-main-content text-lg">
-                <div class="prose lg:prose-xl max-w-none">
-                    {{ .Content }}
-                </div>
+                {{ .Content }}
             </main>
 
             <!-- Right Column: Sidebar -->
