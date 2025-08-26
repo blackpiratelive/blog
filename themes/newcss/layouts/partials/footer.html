@@ -27,3 +27,18 @@ Website is made using <a href="https://gohugo.io">Hugo</a> and love on <a href="
     <p>By <a href="https://blackpiratex.com/">BlackPirateX</a></p>
 </div>
 </footer>
+<script>
+(async function() {
+  try {
+    const endpoint = 'https://simpler-69bpx.vercel.app/api/bpx';
+    const payload = { data: { u: window.location.href, r: document.referrer } };
+    await fetch(endpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+      mode: 'cors'
+    });
+  } catch(e) { console.error('Analytics script failed:', e); }
+})();
+</script>
+
