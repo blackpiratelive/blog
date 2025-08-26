@@ -1,22 +1,114 @@
-{{- partial "head.html" . -}}
-<body>
-    {{- partial "header.html" . -}}
-    <div class="all-content">
-        <h4 class="description">{{ .Site.Params.description }}</h4>
-        <div class="posts">
-            <p class="author">Press CTRL+F to search</p>
-    <p class="author">There are currently {{ len .Site.RegularPages  }} posts on this site.</p>
-<ul class="home-ul">
-                {{- range.RegularPages }}
-                <li class="post-list">
-                    <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}"><span class="time-homepage">{{ .Date.Format "2006 Jan 02" }}</span></time>
-                    &ndash;
-                    <a href="{{ .RelPermalink }}" class="homepage-blog-list">{{ .Title }}</a>
-                </li>
-            {{ end -}}
-        </ul>
-    </div>
-    {{- partial "footer.html" . -}}
-</div>
 
-<body></html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Site.Title }}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles to mimic NCERT book feel */
+        body {
+            font-family: 'Tiro Devanagari Hindi', serif;
+            background-color: #fdfdf2; /* Off-white, slightly yellow paper color */
+            color: #333;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Roboto Slab', serif;
+            font-weight: 700;
+        }
+        .ncert-header {
+            background-color: #f2e8c9; /* Light yellow header */
+            border-bottom: 4px solid #d4cba5;
+        }
+        .post-list-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 1rem 0;
+            border-bottom: 1px dashed #d4cba5;
+        }
+        .post-list-item:last-child {
+            border-bottom: none;
+        }
+        .post-date {
+            font-family: 'Roboto Slab', serif;
+            color: #6b7280; /* gray-500 */
+            width: 160px;
+            flex-shrink: 0;
+            font-size: 0.95rem;
+            padding-top: 0.25rem;
+        }
+        .post-title-meta {
+            display: flex;
+            flex-direction: column;
+        }
+        .post-link {
+            color: #333;
+            text-decoration: none;
+            font-size: 1.2rem;
+            line-height: 1.4;
+        }
+        .post-link:hover {
+            color: #4a7c59;
+            text-decoration: underline;
+        }
+        .post-meta {
+            font-size: 0.85rem;
+            color: #6b7280;
+            margin-top: 0.25rem;
+            font-family: 'Roboto Slab', serif;
+        }
+        .post-tag {
+            color: #4a7c59;
+            text-decoration: none;
+        }
+        .post-tag:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Main Container -->
+    <div class="container mx-auto max-w-5xl p-4 sm:p-8">
+
+        <!-- Header Section -->
+        <header class="ncert-header p-4 rounded-t-lg mb-8 text-center">
+            <h1 class="text-3xl md:text-4xl text-gray-800">{{ .Site.Title }}</h1>
+            <p class="text-lg text-gray-600 mt-1">{{ .Site.Params.description }}</p>
+        </header>
+
+        <!-- Main Content Area: Blog Post List -->
+        <main class="bg-white/50 p-6 rounded-lg border border-gray-200">
+            <div class="post-list">
+                {{- range .Site.RegularPages.ByDate.Reverse }}
+                <div class="post-list-item">
+                    <span class="post-date">{{ .Date.Format "January 02, 2006" }}</span>
+                    <div class="post-title-meta">
+                        <a href="{{ .RelPermalink }}" class="post-link">{{ .Title }}</a>
+                        <div class="post-meta">
+                            <span>{{ .WordCount }} words</span> &bull; <span>{{ .ReadingTime }} min read</span>
+                            {{ if .Params.tags }}
+                            &bull; Tags:
+                            {{ range $i, $e := .Params.tags }}
+                                {{ if $i }}, {{ end }}<a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" class="post-tag">{{ . }}</a>
+                            {{ end }}
+                            {{ end }}
+                        </div>
+                    </div>
+                </div>
+                {{ end -}}
+            </div>
+        </main>
+        
+        <!-- Footer -->
+        <footer class="text-center text-gray-500 mt-12 py-4 border-t-2">
+            {{- partial "footer.html" . -}}
+        </footer>
+
+    </div>
+
+</body>
+</html>
