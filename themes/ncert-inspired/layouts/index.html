@@ -1,4 +1,4 @@
-
+{{- partial "head.html" . -}}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -24,8 +24,9 @@
             border-bottom: 4px solid #d4cba5;
         }
         .post-list-item {
+            /* Mobile-first: stacked layout */
             display: flex;
-            align-items: flex-start;
+            flex-direction: column;
             padding: 1rem 0;
             border-bottom: 1px dashed #d4cba5;
         }
@@ -35,10 +36,8 @@
         .post-date {
             font-family: 'Roboto Slab', serif;
             color: #6b7280; /* gray-500 */
-            width: 160px;
-            flex-shrink: 0;
-            font-size: 0.95rem;
-            padding-top: 0.25rem;
+            font-size: 0.9rem;
+            margin-bottom: 0.25rem;
         }
         .post-title-meta {
             display: flex;
@@ -47,7 +46,7 @@
         .post-link {
             color: #333;
             text-decoration: none;
-            font-size: 1.2rem;
+            font-size: 1.1rem; /* Adjusted for mobile */
             line-height: 1.4;
         }
         .post-link:hover {
@@ -67,6 +66,24 @@
         .post-tag:hover {
             text-decoration: underline;
         }
+        
+        /* Styles for screens larger than mobile (sm breakpoint in Tailwind) */
+        @media (min-width: 640px) {
+            .post-list-item {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+            .post-date {
+                width: 160px;
+                flex-shrink: 0;
+                font-size: 0.95rem;
+                padding-top: 0.25rem;
+                margin-bottom: 0;
+            }
+            .post-link {
+                font-size: 1.2rem;
+            }
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -82,6 +99,9 @@
 
         <!-- Main Content Area: Blog Post List -->
         <main class="bg-white/50 p-6 rounded-lg border border-gray-200">
+            <div class="text-center mb-6 text-gray-600 font-bold font-sans">
+                Total Posts: {{ len .Site.RegularPages }}
+            </div>
             <div class="post-list">
                 {{- range .Site.RegularPages.ByDate.Reverse }}
                 <div class="post-list-item">
