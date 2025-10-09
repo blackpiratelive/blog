@@ -12,3 +12,5 @@ Then in train Pabitra had a bhai who was not found. He said his brother came wit
 At the final dream I don't remember its fraustating, 
 I woke after the 2nd sleep, thought about writing down and repeated in my mind what I dreamt then slept and saw the third dream. Maybe because of repeatation I was able to remember. 
 I took coffee just before sleep. 
+
+{{< img src="/img/dream-air.png" >}}

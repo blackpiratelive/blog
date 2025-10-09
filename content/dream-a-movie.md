@@ -17,4 +17,6 @@ In another scene mom was all alone in this rain at home which made me very sad, 
 
 In another scene I was in the charge for fixing the plumbing of the house. The plumber came and did the work haphazardly and I had to supervise them to fix it properly. At this time brother was in studying in front of a tuition teacher. The teacher was most probably CC sir. 
 
-Oh and there was a map of some place. Which I think I have seen before in another dream but not
+Oh and there was a map of some place. Which I think I have seen before in another dream but not sure. 
+
+{{< img src="/img/a-movie.png" >}}
