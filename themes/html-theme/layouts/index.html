@@ -1,8 +1,8 @@
-{{- /* index.html — serif blog aesthetic */ -}}
+{{- /* index.html — serif blog aesthetic with responsive 5-column table */ -}}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>{{ .Site.Title }}</title>
 
@@ -14,15 +14,16 @@
       --link-visited:#551a8b;
       --rule:#000;
       --muted:#666;
-      --maxw: 650px;
+      --maxw: 900px; /* a bit wider to fit 5 columns comfortably */
       --padx: 20px;
       --outer: 40px;
+
+      --th-bg:#f7f7f7;
+      --row-border:#ddd;
+      --tag-bg:#f1f1f1;
     }
 
-    html, body {
-      padding: 0;
-      margin: 0;
-    }
+    html, body { margin:0; padding:0; }
 
     body{
       font-family: Georgia, serif;
@@ -35,16 +36,9 @@
       font-size: 18px;
     }
 
-    a{
-      color: var(--link);
-      text-decoration: none;
-    }
-    a:visited{
-      color: var(--link-visited);
-    }
-    a:hover{
-      text-decoration: underline;
-    }
+    a{ color: var(--link); text-decoration: none; }
+    a:visited{ color: var(--link-visited); }
+    a:hover{ text-decoration: underline; }
 
     header h1{
       font-weight: normal;
@@ -55,66 +49,99 @@
       border-bottom: 1px solid var(--rule);
     }
 
-    header p.site-desc{
-      margin: 0 0 14px 0;
+    header p.site-desc{ margin: 6px 0 0 0; color: var(--muted); }
+
+    .stats{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: baseline;
+      margin: 14px 0 24px 0;
       color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .stats .pill{
+      display: inline-block;
+      border: 1px solid var(--rule);
+      border-radius: 14px;
+      padding: 4px 10px;
+      color: #000;
+      background: #fff;
+      line-height: 1.2;
+    }
+    .stats .since{
+      margin-left: 6px;
     }
 
-    hr{
-      border: none;
-      border-top: 1px solid var(--rule);
-      margin: 40px 0;
-      height: 0;
+    /* Table wrapper to allow horizontal scroll on very narrow screens without breaking layout */
+    .table-wrap{
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border: 1px solid var(--rule);
+      border-radius: 6px;
     }
 
-    /* Post list */
-    .total{
-      text-align: center;
-      color: var(--muted);
-      font-weight: bold;
-      margin: 0 0 24px 0;
-      font-family: Georgia, serif;
+    table{
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      min-width: 700px; /* keep structure on mid screens */
     }
 
-    .post-list{
-      list-style: none;
-      padding: 0;
-      margin: 0;
+    thead th{
+      text-align: left;
+      font-weight: normal;
+      background: var(--th-bg);
+      border-bottom: 1px solid var(--rule);
+      padding: 10px 12px;
+      white-space: nowrap;
     }
 
-    .post-item{
-      padding: 16px 0;
-      border-bottom: 1px dashed #aaa;
+    tbody td{
+      border-bottom: 1px solid var(--row-border);
+      padding: 12px;
+      vertical-align: top;
     }
-    .post-item:last-child{
+    tbody tr:last-child td{
       border-bottom: none;
     }
 
-    .post-title{
-      font-weight: normal;
-      font-size: 1.25rem;
-      line-height: 1.35;
-      margin: 0 0 6px 0;
+    .col-title a{
+      display: inline-block;
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
-    .post-date{
-      color: var(--muted);
-      font-size: 0.95rem;
-      margin: 0 0 6px 0;
-      font-family: Georgia, serif;
-    }
-
-    .post-meta{
-      color: var(--muted);
-      font-size: 0.9rem;
-      margin-top: 4px;
-    }
+    .col-date{ color: var(--muted); white-space: nowrap; }
+    .col-counts{ color: var(--muted); white-space: nowrap; }
+    .col-read{ color: var(--muted); white-space: nowrap; }
 
     .tags{
-      margin-top: 4px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      max-width: 100%;
     }
-    .tags a{
-      margin-right: 10px;
+    .tag{
+      display: inline-block;
+      background: var(--tag-bg);
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      padding: 2px 8px;
+      font-size: 0.9rem;
+      color: #000;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    /* Images inside any content snippets (if present) must be responsive and non-breaking */
+    img{
+      max-width: 100%;
+      height: auto;
+      display: block;
     }
 
     footer{
@@ -122,55 +149,106 @@
       text-align: left;
       padding: 24px 0 0 0;
       border-top: 1px solid var(--rule);
-      margin-top: 40px;
+      margin-top: 28px;
+    }
+
+    /* Responsive stacking on narrow screens: show each row as a card with labeled lines */
+    @media (max-width: 640px){
+      body{ font-size: 17px; }
+
+      .table-wrap{
+        border: none; /* let cards have their own borders */
+        overflow-x: visible;
+      }
+      table, thead, tbody, th, td, tr{ display: block; }
+      thead{ display: none; }
+
+      tbody tr{
+        border: 1px solid var(--row-border);
+        border-radius: 6px;
+        margin-bottom: 12px;
+        padding: 10px 10px 4px 10px;
+      }
+      tbody td{
+        border: none;
+        padding: 6px 0;
+      }
+
+      .row-line{ display: flex; gap: 8px; align-items: baseline; }
+      .label{ color: var(--muted); min-width: 92px; }
+
+      .col-title a{
+        white-space: normal;
+      }
     }
   </style>
 </head>
-<body class="antialiased">
+<body>
 
-  <!-- Header Section -->
   <header>
     <h1>{{ .Site.Title }}</h1>
     {{ with .Site.Params.description }}
       <p class="site-desc">{{ . }}</p>
     {{ end }}
+
+    {{/* Compute stats: total posts and total words */}}
+    {{ $pages := .Site.RegularPages }}
+    {{ $totalPosts := len $pages }}
+    {{ $totalWords := 0 }}
+    {{ range $pages }}
+      {{ $totalWords = add $totalWords .WordCount }}
+    {{ end }}
+
+    <div class="stats">
+      <span class="pill">Total posts: {{ $totalPosts }}</span>
+      <span class="pill">Total words: {{ $totalWords }}</span>
+      <span class="since">Since 2021.</span>
+    </div>
   </header>
 
-  <!-- Main Content Area: Blog Post List -->
   <main>
-    <div class="total">Total Posts: {{ len .Site.RegularPages }}</div>
-
-    <ul class="post-list">
-      {{ range .Site.RegularPages.ByDate.Reverse }}
-        <li class="post-item">
-          <div class="post-date">{{ .Date.Format "January 02, 2006" }}</div>
-
-          <h2 class="post-title">
-            <a class="post-link" href="{{ .RelPermalink }}">{{ .Title }}</a>
-          </h2>
-
-          <div class="post-meta">
-            <span>{{ .WordCount }} words</span>
-            <span> · </span>
-            <span>{{ .ReadingTime }} min read</span>
-
-            {{- if .Params.tags -}}
-              <span> · </span>
-              <span>Tags:</span>
-              <span class="tags">
-                {{- range $i, $e := .Params.tags -}}
-                  {{- if $i }}, {{ end -}}
-                  <a href="{{ (printf "tags/%s" (urlize .)) | relLangURL }}" class="post-tag">{{ . }}</a>
-                {{- end -}}
-              </span>
-            {{- end -}}
-          </div>
-        </li>
-      {{ end }}
-    </ul>
+    <div class="table-wrap" role="region" aria-label="Posts table">
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Date</th>
+            <th>Word count</th>
+            <th>Min read</th>
+            <th>Tags</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{ range .Site.RegularPages.ByDate.Reverse }}
+            <tr>
+              <td class="col-title">
+                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+              </td>
+              <td class="col-date">
+                {{ .Date.Format "January 02, 2006" }}
+              </td>
+              <td class="col-counts">
+                {{ .WordCount }}
+              </td>
+              <td class="col-read">
+                {{ .ReadingTime }}
+              </td>
+              <td>
+                <div class="tags">
+                  {{- with .Params.tags -}}
+                    {{- range . -}}
+                      <a class="tag" href="{{ (printf "tags/%s" (urlize .)) | relLangURL }}">{{ . }}</a>
+                    {{- end -}}
+                  {{- end -}}
+                </div>
+              </td>
+            </tr>
+          {{ end }}
+        </tbody>
+      </table>
+    </div>
   </main>
 
-  <!-- Footer -->
   <footer>
     {{- partial "footer.html" . -}}
   </footer>
