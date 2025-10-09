@@ -1,25 +1,27 @@
-<div id="comments">
-  <h3>Comments</h3>
+<div id="comments" class="comment-list">
+  <h3 style="font-weight: normal; font-size: 1.5rem; margin: 24px 0 12px;">Comments</h3>
 
   {{ $slug := .File.BaseFileName }}
-  {{ $url := printf "https://blog.blackpiratex.com/api/comments-approved?slug=%s" $slug }}
+  {{ $url := printf "https://blog.blackpiratex.com/api/comments-approved?slugs=%s" $slug }}
   {{ $comments := getJSON $url }}
 
   {{ if $comments }}
-    <ul>
+    <ul style="list-style:none; padding-left:0; margin:0;">
       {{ range $comments }}
-        {{ if not .parent_id }}
-          <li>
-            <strong>{{ .name }}</strong> ({{ .created_at }}):<br>
-            {{ .message }}
+        {{ if not .parentid }}
+          <li style="border:1px solid #e5e5e5; border-radius:4px; padding:10px 12px; margin:0 0 12px 0; background:#fff;">
+            <strong>{{ .name }}</strong>
+            <small style="color:#666;"> · {{ .createdat }}</small><br/>
+            <p style="margin:8px 0 0 0;">{{ .message | safeHTML }}</p>
 
-            {{ $replies := where $comments "parent_id" .id }}
+            {{ $replies := where $comments "parentid" .id }}
             {{ if $replies }}
-              <ul>
+              <ul style="list-style:none; padding-left:14px; margin:10px 0 0 0;">
                 {{ range $replies }}
-                  <li>
-                    <strong>{{ .name }}</strong> ({{ .created_at }}):<br>
-                    {{ .message }}
+                  <li style="border:1px solid #e5e5e5; border-radius:4px; padding:8px 10px; margin:0 0 10px 0; background:#fff;">
+                    <strong>{{ .name }}</strong>
+                    <small style="color:#666;"> · {{ .createdat }}</small><br/>
+                    <p style="margin:6px 0 0 0;">{{ .message | safeHTML }}</p>
                   </li>
                 {{ end }}
               </ul>
@@ -29,6 +31,6 @@
       {{ end }}
     </ul>
   {{ else }}
-    <p>No comments yet.</p>
+    <p style="color:#666;">No comments yet.</p>
   {{ end }}
 </div>
