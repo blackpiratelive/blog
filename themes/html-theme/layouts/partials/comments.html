@@ -1,0 +1,48 @@
+<div id="comments">
+  <h3>Leave a Comment</h3>
+
+  <script>
+    if (window.location.search.includes("comment=success")) {
+      document.write('<p style="color: green;">✅ Your comment has been submitted successfully!</p>');
+    }
+  </script>
+
+  <form method="POST" action="https://blog.blackpiratex.com/api/comment">
+    <!-- Identify which post this comment belongs to -->
+    <input type="hidden" name="slug" value="{{ .File.BaseFileName }}">
+
+    <label>
+      Name (required):<br>
+      <input type="text" name="name" required>
+    </label>
+    <br><br>
+
+    <label>
+      Comment (required):<br>
+      <textarea name="message" required></textarea>
+    </label>
+    <br><br>
+
+    <label>
+      Email (optional):<br>
+      <input type="email" name="email">
+    </label>
+    <br><br>
+
+    <label>
+      Website (optional):<br>
+      <input type="url" name="website">
+    </label>
+    <br><br>
+
+    <!-- 🪤 Honeypot (hidden from users) -->
+    <div style="display:none;">
+      <label>
+        Leave this empty:<br>
+        <input type="text" name="honeypot">
+      </label>
+    </div>
+
+    <button type="submit">Post Comment</button>
+  </form>
+</div>

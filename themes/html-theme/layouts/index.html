@@ -1,0 +1,179 @@
+{{- /* index.html — serif blog aesthetic */ -}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{{ .Site.Title }}</title>
+
+  <style>
+    :root{
+      --text:#333;
+      --bg:#fff;
+      --link:#00e;
+      --link-visited:#551a8b;
+      --rule:#000;
+      --muted:#666;
+      --maxw: 650px;
+      --padx: 20px;
+      --outer: 40px;
+    }
+
+    html, body {
+      padding: 0;
+      margin: 0;
+    }
+
+    body{
+      font-family: Georgia, serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+      max-width: var(--maxw);
+      margin: var(--outer) auto;
+      padding: 0 var(--padx);
+      font-size: 18px;
+    }
+
+    a{
+      color: var(--link);
+      text-decoration: none;
+    }
+    a:visited{
+      color: var(--link-visited);
+    }
+    a:hover{
+      text-decoration: underline;
+    }
+
+    header h1{
+      font-weight: normal;
+      font-size: 2rem;
+      line-height: 1.2;
+      margin: 0 0 10px 0;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    header p.site-desc{
+      margin: 0 0 14px 0;
+      color: var(--muted);
+    }
+
+    hr{
+      border: none;
+      border-top: 1px solid var(--rule);
+      margin: 40px 0;
+      height: 0;
+    }
+
+    /* Post list */
+    .total{
+      text-align: center;
+      color: var(--muted);
+      font-weight: bold;
+      margin: 0 0 24px 0;
+      font-family: Georgia, serif;
+    }
+
+    .post-list{
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .post-item{
+      padding: 16px 0;
+      border-bottom: 1px dashed #aaa;
+    }
+    .post-item:last-child{
+      border-bottom: none;
+    }
+
+    .post-title{
+      font-weight: normal;
+      font-size: 1.25rem;
+      line-height: 1.35;
+      margin: 0 0 6px 0;
+    }
+
+    .post-date{
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin: 0 0 6px 0;
+      font-family: Georgia, serif;
+    }
+
+    .post-meta{
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 4px;
+    }
+
+    .tags{
+      margin-top: 4px;
+    }
+    .tags a{
+      margin-right: 10px;
+    }
+
+    footer{
+      color: var(--muted);
+      text-align: left;
+      padding: 24px 0 0 0;
+      border-top: 1px solid var(--rule);
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body class="antialiased">
+
+  <!-- Header Section -->
+  <header>
+    <h1>{{ .Site.Title }}</h1>
+    {{ with .Site.Params.description }}
+      <p class="site-desc">{{ . }}</p>
+    {{ end }}
+  </header>
+
+  <!-- Main Content Area: Blog Post List -->
+  <main>
+    <div class="total">Total Posts: {{ len .Site.RegularPages }}</div>
+
+    <ul class="post-list">
+      {{ range .Site.RegularPages.ByDate.Reverse }}
+        <li class="post-item">
+          <div class="post-date">{{ .Date.Format "January 02, 2006" }}</div>
+
+          <h2 class="post-title">
+            <a class="post-link" href="{{ .RelPermalink }}">{{ .Title }}</a>
+          </h2>
+
+          <div class="post-meta">
+            <span>{{ .WordCount }} words</span>
+            <span> · </span>
+            <span>{{ .ReadingTime }} min read</span>
+
+            {{- if .Params.tags -}}
+              <span> · </span>
+              <span>Tags:</span>
+              <span class="tags">
+                {{- range $i, $e := .Params.tags -}}
+                  {{- if $i }}, {{ end -}}
+                  <a href="{{ (printf "tags/%s" (urlize .)) | relLangURL }}" class="post-tag">{{ . }}</a>
+                {{- end -}}
+              </span>
+            {{- end -}}
+          </div>
+        </li>
+      {{ end }}
+    </ul>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    {{- partial "footer.html" . -}}
+  </footer>
+
+</body>
+</html>
