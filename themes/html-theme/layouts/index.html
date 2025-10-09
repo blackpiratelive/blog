@@ -1,4 +1,4 @@
-{{- /* index.html — serif blog aesthetic with responsive 5-column table */ -}}
+{{- /* index.html — serif journal index with summaries */ -}}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,13 +14,12 @@
       --link-visited:#551a8b;
       --rule:#000;
       --muted:#666;
-      --maxw: 900px; /* a bit wider to fit 5 columns comfortably */
+      --maxw: 800px;
       --padx: 20px;
       --outer: 40px;
 
-      --th-bg:#f7f7f7;
-      --row-border:#ddd;
-      --tag-bg:#f1f1f1;
+      --card-border:#e3e3e3;
+      --tag-bg:#f3f3f3;
     }
 
     html, body { margin:0; padding:0; }
@@ -54,7 +53,7 @@
     .stats{
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 10px 12px;
       align-items: baseline;
       margin: 14px 0 24px 0;
       color: var(--muted);
@@ -69,61 +68,54 @@
       background: #fff;
       line-height: 1.2;
     }
-    .stats .since{
-      margin-left: 6px;
+    .stats .since{ margin-left: 6px; }
+
+    /* Cards list */
+    .list{
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
     }
 
-    /* Table wrapper to allow horizontal scroll on very narrow screens without breaking layout */
-    .table-wrap{
-      width: 100%;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      border: 1px solid var(--rule);
-      border-radius: 6px;
+    .card{
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 14px;
+      background: #fff;
     }
 
-    table{
-      width: 100%;
-      border-collapse: separate;
-      border-spacing: 0;
-      min-width: 700px; /* keep structure on mid screens */
+    .card-head{
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px 16px;
+      align-items: start;
     }
 
-    thead th{
-      text-align: left;
+    .title{
+      font-size: 1.2rem;
+      line-height: 1.35;
+      margin: 0 0 4px 0;
       font-weight: normal;
-      background: var(--th-bg);
-      border-bottom: 1px solid var(--rule);
-      padding: 10px 12px;
+    }
+
+    .meta{
+      text-align: right;
+      color: var(--muted);
+      font-size: 0.95rem;
       white-space: nowrap;
     }
 
-    tbody td{
-      border-bottom: 1px solid var(--row-border);
-      padding: 12px;
-      vertical-align: top;
+    .summary{
+      margin: 8px 0 0 0;
+      color: var(--text);
     }
-    tbody tr:last-child td{
-      border-bottom: none;
-    }
-
-    .col-title a{
-      display: inline-block;
-      max-width: 100%;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
-    .col-date{ color: var(--muted); white-space: nowrap; }
-    .col-counts{ color: var(--muted); white-space: nowrap; }
-    .col-read{ color: var(--muted); white-space: nowrap; }
 
     .tags{
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
-      max-width: 100%;
+      margin-top: 8px;
+      justify-content: flex-end;
     }
     .tag{
       display: inline-block;
@@ -137,12 +129,8 @@
       white-space: nowrap;
     }
 
-    /* Images inside any content snippets (if present) must be responsive and non-breaking */
-    img{
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
+    /* Ensure any images inside summaries never break layout */
+    .summary img{ max-width: 100%; height: auto; display: block; }
 
     footer{
       color: var(--muted);
@@ -152,33 +140,17 @@
       margin-top: 28px;
     }
 
-    /* Responsive stacking on narrow screens: show each row as a card with labeled lines */
-    @media (max-width: 640px){
+    @media (max-width: 700px){
       body{ font-size: 17px; }
-
-      .table-wrap{
-        border: none; /* let cards have their own borders */
-        overflow-x: visible;
+      .card-head{
+        grid-template-columns: 1fr;
       }
-      table, thead, tbody, th, td, tr{ display: block; }
-      thead{ display: none; }
-
-      tbody tr{
-        border: 1px solid var(--row-border);
-        border-radius: 6px;
-        margin-bottom: 12px;
-        padding: 10px 10px 4px 10px;
-      }
-      tbody td{
-        border: none;
-        padding: 6px 0;
-      }
-
-      .row-line{ display: flex; gap: 8px; align-items: baseline; }
-      .label{ color: var(--muted); min-width: 92px; }
-
-      .col-title a{
+      .meta{
+        text-align: left;
         white-space: normal;
+      }
+      .tags{
+        justify-content: flex-start;
       }
     }
   </style>
@@ -191,13 +163,11 @@
       <p class="site-desc">{{ . }}</p>
     {{ end }}
 
-    {{/* Compute stats: total posts and total words */}}
+    {{/* Stats */}}
     {{ $pages := .Site.RegularPages }}
     {{ $totalPosts := len $pages }}
     {{ $totalWords := 0 }}
-    {{ range $pages }}
-      {{ $totalWords = add $totalWords .WordCount }}
-    {{ end }}
+    {{ range $pages }}{{ $totalWords = add $totalWords .WordCount }}{{ end }}
 
     <div class="stats">
       <span class="pill">Total posts: {{ $totalPosts }}</span>
@@ -206,47 +176,38 @@
     </div>
   </header>
 
-  <main>
-    <div class="table-wrap" role="region" aria-label="Posts table">
-      <table>
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Date</th>
-            <th>Word count</th>
-            <th>Min read</th>
-            <th>Tags</th>
-          </tr>
-        </thead>
-        <tbody>
-          {{ range .Site.RegularPages.ByDate.Reverse }}
-            <tr>
-              <td class="col-title">
-                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-              </td>
-              <td class="col-date">
-                {{ .Date.Format "January 02, 2006" }}
-              </td>
-              <td class="col-counts">
-                {{ .WordCount }}
-              </td>
-              <td class="col-read">
-                {{ .ReadingTime }}
-              </td>
-              <td>
-                <div class="tags">
-                  {{- with .Params.tags -}}
-                    {{- range . -}}
-                      <a class="tag" href="{{ (printf "tags/%s" (urlize .)) | relLangURL }}">{{ . }}</a>
-                    {{- end -}}
-                  {{- end -}}
-                </div>
-              </td>
-            </tr>
-          {{ end }}
-        </tbody>
-      </table>
-    </div>
+  <main class="list">
+    {{ range .Site.RegularPages.ByDate.Reverse }}
+      <article class="card">
+        <div class="card-head">
+          <div>
+            <h2 class="title">
+              <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            </h2>
+            <p class="summary">
+              {{- /* Prefer .Summary; if empty, fallback to truncated plain text of .Content */ -}}
+              {{- if .Summary -}}
+                {{ .Summary | plainify | truncate 180 }}
+              {{- else -}}
+                {{ .Content | plainify | truncate 180 }}
+              {{- end -}}
+            </p>
+          </div>
+
+          <div>
+            <div class="meta">{{ .Date.Format "January 02, 2006" }}</div>
+            <div class="meta">{{ .WordCount }} words · {{ .ReadingTime }} min</div>
+            <div class="tags">
+              {{- with .Params.tags -}}
+                {{- range . -}}
+                  <a class="tag" href="{{ (printf "tags/%s" (urlize .)) | relLangURL }}">{{ . }}</a>
+                {{- end -}}
+              {{- end -}}
+            </div>
+          </div>
+        </div>
+      </article>
+    {{ end }}
   </main>
 
   <footer>
