@@ -153,12 +153,51 @@
         justify-content: flex-start;
       }
     }
+    
+    .top-nav{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+  align-items: center;
+  margin: 0 0 8px 0;
+}
+
+.top-nav a{
+  color: #00e;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.top-nav a:visited{
+  color: #551a8b;
+}
+
+.top-nav a:hover{
+  text-decoration: underline;
+}
+
+/* Attention style for Status */
+.top-nav .status-link{
+  border: 1px solid #000;
+  border-radius: 14px;
+  padding: 3px 10px;
+  background: #000;
+  color: #fff !important;
+}
+    
   </style>
 </head>
 <body>
 
   <header>
     <h1>{{ .Site.Title }}</h1>
+    <nav class="top-nav" aria-label="Primary">
+  <a href="{{ .Site.BaseURL }}">Home</a>
+  <a href="https://blackpiratex.com">Frontpage</a>
+  <a href="https://status.blackpiratex.com" class="status-link">Status</a>
+  <a href="https://notes.blackpiratex.com">Notes</a>
+  <a href="https://gallery.blackpiratex.com">Gallery</a>
+</nav>
     {{ with .Site.Params.description }}
       <p class="site-desc">{{ . }}</p>
     {{ end }}
