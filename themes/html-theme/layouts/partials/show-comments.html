@@ -1,36 +1,50 @@
 <div id="comments" class="comment-list">
   <h3 style="font-weight: normal; font-size: 1.5rem; margin: 24px 0 12px;">Comments</h3>
 
-  {{ $slug := .File.BaseFileName }}
-  {{ $url := printf "https://blog.blackpiratex.com/api/comments-approved?slugs=%s" $slug }}
-  {{ $comments := getJSON $url }}
+  {{/* Derive slug safely for both .File and .CurrentSection contexts */}}
+  {{ $slug := "" }}
+  {{ with .File }}
+    {{ $slug = .BaseFileName }}
+  {{ end }}
+  {{/* Allow override if the caller passes a slug explicitly: {{ partial "show-comments.html" (dict "slug" .File.BaseFileName "ctx" .) }} */}}
+  {{ with .slug }}
+    {{ $slug = . }}
+  {{ end }}
 
-  {{ if $comments }}
-    <ul style="list-style:none; padding-left:0; margin:0;">
-      {{ range $comments }}
-        {{ if not .parentid }}
-          <li style="border:1px solid #e5e5e5; border-radius:4px; padding:10px 12px; margin:0 0 12px 0; background:#fff;">
-            <strong>{{ .name }}</strong>
-            <small style="color:#666;"> · {{ .createdat }}</small><br/>
-            <p style="margin:8px 0 0 0;">{{ .message | safeHTML }}</p>
+  {{ if $slug }}
+    {{ $url := printf "https://blog.blackpiratex.com/api/comments-approved?slugs=%s" $slug }}
+    {{ $comments := getJSON $url }}
 
-            {{ $replies := where $comments "parentid" .id }}
-            {{ if $replies }}
-              <ul style="list-style:none; padding-left:14px; margin:10px 0 0 0;">
-                {{ range $replies }}
-                  <li style="border:1px solid #e5e5e5; border-radius:4px; padding:8px 10px; margin:0 0 10px 0; background:#fff;">
-                    <strong>{{ .name }}</strong>
-                    <small style="color:#666;"> · {{ .createdat }}</small><br/>
-                    <p style="margin:6px 0 0 0;">{{ .message | safeHTML }}</p>
-                  </li>
-                {{ end }}
-              </ul>
-            {{ end }}
-          </li>
+    {{ if $comments }}
+      <ul style="list-style:none; padding-left:0; margin:0;">
+        {{ range $comments }}
+          {{ if not .parentid }}
+            <li style="border:1px solid #e5e5e5; border-radius:4px; padding:10px 12px; margin:0 0 12px 0; background:#fff;">
+              <strong>{{ .name }}</strong>
+              <small style="color:#666;"> · {{ .createdat }}</small><br/>
+              <p style="margin:8px 0 0 0;">{{ .message | safeHTML }}</p>
+
+              {{ $replies := where $comments "parentid" .id }}
+              {{ if $replies }}
+                <ul style="list-style:none; padding-left:14px; margin:10px 0 0 0;">
+                  {{ range $replies }}
+                    <li style="border:1px solid #e5e5e5; border-radius:4px; padding:8px 10px; margin:0 0 10px 0; background:#fff;">
+                      <strong>{{ .name }}</strong>
+                      <small style="color:#666;"> · {{ .createdat }}</small><br/>
+                      <p style="margin:6px 0 0 0;">{{ .message | safeHTML }}</p>
+                    </li>
+                  {{ end }}
+                </ul>
+              {{ end }}
+            </li>
+          {{ end }}
         {{ end }}
-      {{ end }}
-    </ul>
+      </ul>
+    {{ else }}
+      <p style="color:#666;">No comments yet.</p>
+    {{ end }}
   {{ else }}
-    <p style="color:#666;">No comments yet.</p>
+    {{/* No slug in this context: skip remote fetch to avoid build errors */}}
+    <p style="color:#666;">Comments are not available for this page.</p>
   {{ end }}
 </div>
