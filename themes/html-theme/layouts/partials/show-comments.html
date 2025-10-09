@@ -1,50 +1,42 @@
-<div id="comments" class="comment-list">
-  <h3 style="font-weight: normal; font-size: 1.5rem; margin: 24px 0 12px;">Comments</h3>
+<div id="comments" class="comment-list" style="margin-top: 40px;">
+  <h3 style="font-weight: normal; font-size: 1.5rem; margin: 0 0 12px 0; border-bottom: 1px solid #000; padding-bottom: 8px;">
+    Comments
+  </h3>
 
-  {{/* Derive slug safely for both .File and .CurrentSection contexts */}}
-  {{ $slug := "" }}
-  {{ with .File }}
-    {{ $slug = .BaseFileName }}
-  {{ end }}
-  {{/* Allow override if the caller passes a slug explicitly: {{ partial "show-comments.html" (dict "slug" .File.BaseFileName "ctx" .) }} */}}
-  {{ with .slug }}
-    {{ $slug = . }}
-  {{ end }}
+  {{ $slug := .File.BaseFileName }}
+  {{ $url := printf "https://blog.blackpiratex.com/api/comments-approved?slugs=%s" $slug }}
+  {{ $comments := getJSON $url }}
 
-  {{ if $slug }}
-    {{ $url := printf "https://blog.blackpiratex.com/api/comments-approved?slugs=%s" $slug }}
-    {{ $comments := getJSON $url }}
+  {{ if $comments }}
+    <ul style="list-style: none; padding-left: 0; margin: 0;">
+      {{ range $comments }}
+        {{ if not .parentid }}
+          <li style="border: 1px solid #e5e5e5; border-radius: 4px; padding: 12px 14px; margin: 0 0 12px 0; background: #fff;">
+            <div style="font-family: Georgia, serif; line-height: 1.45;">
+              <strong style="font-weight: normal; font-size: 1rem; color: #333;">{{ .name }}</strong>
+              <small style="color: #666;"> · {{ .createdat }}</small>
+              <p style="margin: 8px 0 0 0; color: #333;">{{ .message | safeHTML }}</p>
+            </div>
 
-    {{ if $comments }}
-      <ul style="list-style:none; padding-left:0; margin:0;">
-        {{ range $comments }}
-          {{ if not .parentid }}
-            <li style="border:1px solid #e5e5e5; border-radius:4px; padding:10px 12px; margin:0 0 12px 0; background:#fff;">
-              <strong>{{ .name }}</strong>
-              <small style="color:#666;"> · {{ .createdat }}</small><br/>
-              <p style="margin:8px 0 0 0;">{{ .message | safeHTML }}</p>
-
-              {{ $replies := where $comments "parentid" .id }}
-              {{ if $replies }}
-                <ul style="list-style:none; padding-left:14px; margin:10px 0 0 0;">
-                  {{ range $replies }}
-                    <li style="border:1px solid #e5e5e5; border-radius:4px; padding:8px 10px; margin:0 0 10px 0; background:#fff;">
-                      <strong>{{ .name }}</strong>
-                      <small style="color:#666;"> · {{ .createdat }}</small><br/>
-                      <p style="margin:6px 0 0 0;">{{ .message | safeHTML }}</p>
-                    </li>
-                  {{ end }}
-                </ul>
-              {{ end }}
-            </li>
-          {{ end }}
+            {{ $replies := where $comments "parentid" .id }}
+            {{ if $replies }}
+              <ul style="list-style: none; padding-left: 14px; margin: 10px 0 0 0;">
+                {{ range $replies }}
+                  <li style="border: 1px solid #e5e5e5; border-radius: 4px; padding: 10px 12px; margin: 0 0 10px 0; background: #fff;">
+                    <div style="font-family: Georgia, serif; line-height: 1.45;">
+                      <strong style="font-weight: normal; font-size: 1rem; color: #333;">{{ .name }}</strong>
+                      <small style="color: #666;"> · {{ .createdat }}</small>
+                      <p style="margin: 6px 0 0 0; color: #333;">{{ .message | safeHTML }}</p>
+                    </div>
+                  </li>
+                {{ end }}
+              </ul>
+            {{ end }}
+          </li>
         {{ end }}
-      </ul>
-    {{ else }}
-      <p style="color:#666;">No comments yet.</p>
-    {{ end }}
+      {{ end }}
+    </ul>
   {{ else }}
-    {{/* No slug in this context: skip remote fetch to avoid build errors */}}
-    <p style="color:#666;">Comments are not available for this page.</p>
+    <p style="color: #666; margin: 8px 0 0 0;">No comments yet.</p>
   {{ end }}
 </div>
