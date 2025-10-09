@@ -1,47 +1,48 @@
-<div id="comments" class="comments">
-  <h3 style="font-weight: normal; font-size: 1.5rem; margin: 0 0 12px 0;">Leave a Comment</h3>
+<div id="comments">
+  <h3>Leave a Comment</h3>
 
   <script>
-    if (window.location.search.includes('comment=success')) {
-      document.write('<p style="color: green;">Your comment has been submitted successfully!</p>');
+    if (window.location.search.includes("comment=success")) {
+      document.write('<p style="color: green;">✅ Your comment has been submitted successfully!</p>');
     }
   </script>
 
   <form method="POST" action="https://blog.blackpiratex.com/api/comment">
-    <input type="hidden" name="slug" value="{{ .File.BaseFileName }}" />
+    <!-- Identify which post this comment belongs to -->
+    <input type="hidden" name="slug" value="{{ .File.BaseFileName }}">
 
-    <div class="form-group" style="margin: 12px 0;">
-      <label style="display:block; margin-bottom:6px;">Name (required)</label>
-      <input type="text" name="name" required
-        style="width:100%; box-sizing:border-box; padding:8px 10px; border:1px solid #ccc; border-radius:3px; font-family: Georgia, serif; font-size: 1rem; background:#fff; color:#333;" />
-    </div>
+    <label>
+      Name (required):<br>
+      <input type="text" name="name" required>
+    </label>
+    <br><br>
 
-    <div class="form-group" style="margin: 12px 0;">
-      <label style="display:block; margin-bottom:6px;">Comment (required)</label>
-      <textarea name="message" required rows="4"
-        style="width:100%; box-sizing:border-box; padding:8px 10px; border:1px solid #ccc; border-radius:3px; font-family: Georgia, serif; font-size: 1rem; background:#fff; color:#333; min-height:120px;"></textarea>
-    </div>
+    <label>
+      Comment (required):<br>
+      <textarea name="message" required></textarea>
+    </label>
+    <br><br>
 
-    <div class="form-group" style="margin: 12px 0;">
-      <label style="display:block; margin-bottom:6px;">Email (optional)</label>
-      <input type="email" name="email"
-        style="width:100%; box-sizing:border-box; padding:8px 10px; border:1px solid #ccc; border-radius:3px; font-family: Georgia, serif; font-size: 1rem; background:#fff; color:#333;" />
-    </div>
+    <label>
+      Email (optional):<br>
+      <input type="email" name="email">
+    </label>
+    <br><br>
 
-    <div class="form-group" style="margin: 12px 0;">
-      <label style="display:block; margin-bottom:6px;">Website (optional)</label>
-      <input type="url" name="website"
-        style="width:100%; box-sizing:border-box; padding:8px 10px; border:1px solid #ccc; border-radius:3px; font-family: Georgia, serif; font-size: 1rem; background:#fff; color:#333;" />
-    </div>
+    <label>
+      Website (optional):<br>
+      <input type="url" name="website">
+    </label>
+    <br><br>
 
+    <!-- 🪤 Honeypot (hidden from users) -->
     <div style="display:none;">
-      <label>Leave this empty</label>
-      <input type="text" name="honeypot" />
+      <label>
+        Leave this empty:<br>
+        <input type="text" name="honeypot">
+      </label>
     </div>
 
-    <button type="submit"
-      style="display:inline-block; padding:9px 14px; border:1px solid #000; background:#000; color:#fff; border-radius:3px; cursor:pointer; font-family: Georgia, serif; font-size:0.95rem;">
-      Post Comment
-    </button>
+    <button type="submit">Post Comment</button>
   </form>
 </div>
