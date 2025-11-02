@@ -37,21 +37,6 @@
   </p>
 
   <p style="margin:8px 0;">By <a href="https://blackpiratex.com" style="color:#00e; text-decoration:none;">BlackPirateX</a>.</p>
-
-  <script async>
-    (async function() {
-      try {
-        const endpoint = "https://simpler-69bpx.vercel.app/api/bpx";
-        const payload = { u: window.location.href, r: document.referrer };
-        await fetch(endpoint, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
-          mode: "cors"
-        });
-      } catch(e) {
-        console.error("Analytics script failed.", e);
-      }
-    })();
-  </script>
+  <p style="margin:8px 0;">Uses self hosted umami analytics. <a href="https://go.blackpiratex.com/blog-analytics" style="color:#00e; text-decoration:none;">View Analytics</a>.</p>
+  <script defer src="https://umami-one-livid.vercel.app/script.js" data-website-id="330c22b1-6960-4868-9467-26537ab1922b"></script>
 </footer>
