@@ -1,9 +1,9 @@
 :root{
       --text:#D3D3D3;
-      --bg:#191919;
-      --link:#00e;
-      --link-visited:#551a8b;
-      --rule:#000;
+      --bg:#060606;
+      --link:#CB9F55;
+      --link-visited:#CB9F55;
+      --rule:#2D4263;
       --muted:#666;
       --maxw: 800px;
       --padx: 20px;
