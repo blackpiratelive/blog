@@ -55,8 +55,8 @@
       border: 1px solid var(--rule);
       border-radius: 14px;
       padding: 4px 10px;
-      color: #000;
-      background: #fff;
+      color: #D0D0D0;
+      background: #101010;
       line-height: 1.2;
     }
     .stats .since{ margin-left: 6px; }
