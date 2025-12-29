@@ -111,11 +111,10 @@
     .tag{
       display: inline-block;
       background: var(--tag-bg);
-      border: 1px solid #ccc;
       border-radius: 12px;
       padding: 2px 8px;
       font-size: 0.9rem;
-      color: #000;
+      color: #D0D0D0;
       text-decoration: none;
       white-space: nowrap;
     }
@@ -154,13 +153,13 @@
 }
 
 .top-nav a{
-  color: #00e;
+  color: #585890;
   text-decoration: none;
   white-space: nowrap;
 }
 
 .top-nav a:visited{
-  color: #551a8b;
+  color: #585890;
 }
 
 .top-nav a:hover{
