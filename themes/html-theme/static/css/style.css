@@ -310,9 +310,64 @@
       body{ font-size: 17px; }
     }
     
-input {
-background-color: black;
-color: var(--text);
-border: 1px solid var(--text);
-border-radius: 16px;
+
+
+/* Form Container Styling */
+#comments {
+  background-color: #101010;
+  padding: 20px;
+}
+
+h3 {
+  color: #D0D0D0;
+  border-bottom: 1px solid #585890; /* Optional: adds a nice separator */
+  padding-bottom: 10px;
+}
+
+/* Labels */
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #D0D0D0;
+  font-weight: bold;
+}
+
+/* Inputs and Textareas */
+input[type="text"],
+input[type="email"],
+input[type="url"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  box-sizing: border-box; /* Ensures padding doesn't break width */
+  
+  background-color: #101010; 
+  color: #D0D0D0;
+  border: 1px solid #585890; /* Accent color for borders */
+  border-radius: 4px;
+}
+
+/* Focus state for inputs (accessibility) */
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #D0D0D0; /* Highlights border on click */
+  box-shadow: 0 0 5px #585890;
+}
+
+/* Button Styling */
+button {
+  background-color: #585890; /* Accent color */
+  color: #D0D0D0;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: filter 0.2s;
+}
+
+button:hover {
+  filter: brightness(1.2); /* Lightens the button slightly on hover */
 }
