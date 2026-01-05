@@ -309,3 +309,10 @@
     @media (max-width: 640px){
       body{ font-size: 17px; }
     }
+    
+input {
+background-color: black;
+color: var(--text);
+border: 1px solid var(--text);
+border-radius: 16px;
+}
