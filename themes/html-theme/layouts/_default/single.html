@@ -53,9 +53,8 @@
 {{ partial "comments.html" . }}
   {{ partial "show-comments.html" (dict "slug" .File.BaseFileName "File" .File) }}
 
-  <footer>
+  
     {{- partial "footer.html" . -}}
-  </footer>
 
 </body>
 </html>
