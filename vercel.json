@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "destination": "https://blackpiratex.com/blog/$1",
+      "permanent": true
+    }
+  ]
+}
