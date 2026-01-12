@@ -717,3 +717,36 @@ figure figcaption {
     }
 }
 
+/* --- GUESTBOOK BUTTON --- */
+.guestbook-btn {
+    background-color: var(--primary-blue);
+    color: #fff !important; /* Force white text */
+    padding: 4px 12px;
+    border-radius: 20px; /* Pill shape */
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0,0,170, 0.2);
+    margin-left: 5px; /* Give it some breathing room */
+}
+
+/* Hover Effect: Moves slightly up and shadow grows */
+.guestbook-btn:hover {
+    background-color: #000080; /* Slightly darker on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,170, 0.3);
+}
+
+/* Ensure the icon stays white */
+.guestbook-btn svg {
+    stroke: #fff;
+}
+
+/* Mobile tweak: Ensure it doesn't touch other links if wrapping occurs */
+@media (max-width: 600px) {
+    .guestbook-btn {
+        margin-left: 0;
+        margin-top: 5px;
+    }
+}
+
