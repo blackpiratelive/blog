@@ -1,11 +1,11 @@
 baseURL = 'https://blog.blackpiratex.com/'
 languageCode = 'en-us'
 title = 'Blog By BlackPirateX'
-theme = 'html-theme'
+theme = 'min-v'
 
 
 [params]
-  author = 'BlackPirateX'
+  author = 'Sudip M.'
   description = "A place for me to write down my thoughts, rants, and reviews."
   tags = 'tags'
   catagories = 'catagories'
@@ -19,3 +19,21 @@ theme = 'html-theme'
   [security.funcs]
     # Allows the "resources.Get" function we need for the gallery
     get = ["resources"]
+    
+    
+
+[params]
+  subtitle = "Notes, thoughts, and code snippets from my daily life."
+
+[menu]
+  [[menu.main]]
+    name = "Github"
+    url = "https://github.com/blackpirateapps"
+    pre = "github"   # This matches the Lucide icon name
+    weight = 10
+
+  [[menu.main]]
+    name = "Portfolio"
+    url = "https://blackpiratex.com"
+    pre = "external-link"
+    weight = 20

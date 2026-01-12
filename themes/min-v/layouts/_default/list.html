@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+{{ partial "head.html" . }}
+<body>
+
+    {{ partial "header.html" . }}
+
+    <div id="app-root">
+        <h4 class="section-header">
+            <i data-lucide="folder" width="14"></i>
+            {{ .Title | upper }}
+        </h4>
+
+        <div>
+            {{ range .Paginator.Pages }}
+            <a href="{{ .RelPermalink }}" class="post-item">
+                <div class="date-badge">
+                    <div class="date-month">{{ .Date.Format "Jan" | upper }}</div>
+                    <div class="date-day">{{ .Date.Format "02" }}</div>
+                </div>
+                <div class="post-content">
+                    <div class="post-title">{{ .Title }}</div>
+                    <div style="font-size: 13px; color: #444; margin-bottom: 6px;">
+                        {{ .Summary | truncate 120 }}
+                    </div>
+                    <div style="margin-top: 6px;">
+                        {{ range .Params.tags }}
+                        <span class="tag-badge">{{ . }}</span>
+                        {{ end }}
+                    </div>
+                </div>
+            </a>
+            {{ end }}
+        </div>
+        
+        {{ template "_internal/pagination.html" . }}
+    </div>
+
+    {{ partial "footer.html" . }}
+
+</body>
+</html>

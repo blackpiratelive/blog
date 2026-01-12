@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+{{ partial "head.html" . }}
+<body>
+
+    {{ partial "header.html" . }}
+
+    <div id="app-root">
+        <div class="quote-box">
+            <div class="quote-header">
+                <i data-lucide="quote" width="12"></i>
+                Thought of The day
+            </div>
+            <p class="quote-text">
+                "Simplicity is the ultimate sophistication."
+            </p>
+            <div style="text-align: right; font-size: 12px;">
+                -- Leonardo da Vinci
+            </div>
+        </div>
+
+        <div style="margin-bottom: 30px;">
+            <h4 class="section-header">
+                <i data-lucide="library" width="14"></i>
+                LATEST WRITINGS
+            </h4>
+            
+            <div>
+                {{ range first 10 .Site.RegularPages }}
+                <a href="{{ .RelPermalink }}" class="post-item">
+                    <div class="date-badge">
+                        <div class="date-month">{{ .Date.Format "Jan" | upper }}</div>
+                        <div class="date-day">{{ .Date.Format "02" }}</div>
+                    </div>
+                    <div class="post-content">
+                        <div class="post-title">{{ .Title }}</div>
+                        <div style="font-size: 13px; color: #444; margin-bottom: 6px;">
+                            {{ .Summary | truncate 120 }}
+                        </div>
+                        <div class="post-meta">
+                            <span class="meta-item"><i data-lucide="user" width="10"></i> {{ .Params.author | default .Site.Params.author }}</span>
+                            <span class="meta-item"><i data-lucide="clock" width="10"></i> {{ .ReadingTime }} min read</span>
+                        </div>
+                        <div style="margin-top: 6px;">
+                            {{ range .Params.tags }}
+                            <span class="tag-badge">{{ . }}</span>
+                            {{ end }}
+                        </div>
+                    </div>
+                </a>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+
+    {{ partial "footer.html" . }}
+
+</body>
+</html>

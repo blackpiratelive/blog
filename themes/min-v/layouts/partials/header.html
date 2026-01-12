@@ -1,0 +1,23 @@
+<div id="header-container">
+    <a href="{{ .Site.BaseURL }}" class="header-title">
+        <i data-lucide="pen-tool" style="margin-right: 8px;"></i>
+        {{ .Site.Title }}
+    </a>
+    <div class="header-subtitle">
+        "{{ .Site.Params.subtitle | default "Notes, thoughts, and code snippets." }}"
+    </div>
+
+    <div class="nav-bar">
+        <a class="nav-link" href="{{ .Site.BaseURL }}">
+            <i data-lucide="layout-dashboard" width="14"></i> Home
+        </a>
+        <span class="nav-separator">|</span>
+        
+        {{ range .Site.Menus.main }}
+        <a class="nav-link" href="{{ .URL }}">
+            {{ if .Pre }}<i data-lucide="{{ .Pre }}" width="14"></i>{{ end }} {{ .Name }}
+        </a>
+        <span class="nav-separator">|</span>
+        {{ end }}
+    </div>
+</div>

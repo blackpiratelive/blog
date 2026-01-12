@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+{{ partial "head.html" . }}
+<body>
+
+    {{ partial "header.html" . }}
+
+    <div style="max-width: 800px; margin: 0 auto;">
+        <a class="back-btn" href="{{ .Site.BaseURL }}">
+            <i data-lucide="arrow-left" width="16"></i> Back
+        </a>
+
+        <div class="detail-container">
+            <h1 class="detail-title">{{ .Title }}</h1>
+            
+            <div style="display: flex; gap: 15px; font-size: 13px; color: #666; margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px;">
+                <span>By <b>{{ .Params.author | default .Site.Params.author }}</b></span>
+                <span>{{ .Date.Format "Jan 2, 2006" }}</span>
+                <span>{{ .ReadingTime }} min read</span>
+            </div>
+
+            {{ if .Params.excerpt }}
+            <div class="detail-excerpt">
+                {{ .Params.excerpt }}
+            </div>
+            {{ end }}
+
+            <div class="single-content">
+                {{ .Content }}
+            </div>
+
+            <div style="margin-top: 30px; padding-top: 10px; border-top: 1px solid #ddd;">
+                {{ range .Params.tags }}
+                <span class="tag-badge">{{ . }}</span>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+
+    {{ partial "footer.html" . }}
+
+</body>
+</html>
