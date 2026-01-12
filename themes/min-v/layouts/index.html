@@ -2,20 +2,41 @@
 <html lang="en">
 {{ partial "head.html" . }}
 <body>
-
     {{ partial "header.html" . }}
 
     <div id="app-root">
-        <div class="quote-box">
-            <div class="quote-header">
-                <i data-lucide="quote" width="12"></i>
-                Thought of The day
+        
+        <div class="search-wrapper">
+            <i data-lucide="search" width="16" style="color:#999; margin-right:10px;"></i>
+            <input type="text" id="search-input" class="search-input" placeholder="Search blog posts...">
+        </div>
+        <div id="search-results"></div>
+
+        {{ $totalWords := 0 }}
+        {{ range .Site.RegularPages }}
+            {{ $totalWords = add $totalWords .WordCount }}
+        {{ end }}
+        <div class="stats-box">
+            <div class="stats-header">
+                <i data-lucide="bar-chart-2" width="14"></i> BLOG STATS
             </div>
-            <p class="quote-text">
-                "Simplicity is the ultimate sophistication."
-            </p>
-            <div style="text-align: right; font-size: 12px;">
-                -- Leonardo da Vinci
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-val">{{ len .Site.RegularPages }}</div>
+                    <div class="stat-lbl">Total Posts</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-val">{{ $totalWords }}</div>
+                    <div class="stat-lbl">Total Words</div>
+                </div>
+                {{ $avg := 0 }}
+                {{ if gt (len .Site.RegularPages) 0 }}
+                    {{ $avg = div $totalWords (len .Site.RegularPages) }}
+                {{ end }}
+                <div class="stat-item">
+                    <div class="stat-val">{{ $avg }}</div>
+                    <div class="stat-lbl">Avg Words</div>
+                </div>
             </div>
         </div>
 
@@ -26,7 +47,8 @@
             </h4>
             
             <div>
-                {{ range first 10 .Site.RegularPages }}
+                {{ $paginator := .Paginate (where .Site.RegularPages "Type" "in" site.Params.mainSections) }}
+                {{ range $paginator.Pages }}
                 <a href="{{ .RelPermalink }}" class="post-item">
                     <div class="date-badge">
                         <div class="date-month">{{ .Date.Format "Jan" | upper }}</div>
@@ -37,10 +59,6 @@
                         <div style="font-size: 13px; color: #444; margin-bottom: 6px;">
                             {{ .Summary | truncate 120 }}
                         </div>
-                        <div class="post-meta">
-                            <span class="meta-item"><i data-lucide="user" width="10"></i> {{ .Params.author | default .Site.Params.author }}</span>
-                            <span class="meta-item"><i data-lucide="clock" width="10"></i> {{ .ReadingTime }} min read</span>
-                        </div>
                         <div style="margin-top: 6px;">
                             {{ range .Params.tags }}
                             <span class="tag-badge">{{ . }}</span>
@@ -50,10 +68,35 @@
                 </a>
                 {{ end }}
             </div>
+
+            {{ if gt $paginator.TotalPages 1 }}
+            <div style="margin-top: 20px; text-align: center; font-size: 14px;">
+                {{ if $paginator.HasPrev }}
+                <a href="{{ $paginator.Prev.URL }}" style="margin-right: 15px; color: var(--primary-blue);">← Newer Posts</a>
+                {{ end }}
+                <span>Page {{ $paginator.PageNumber }} of {{ $paginator.TotalPages }}</span>
+                {{ if $paginator.HasNext }}
+                <a href="{{ $paginator.Next.URL }}" style="margin-left: 15px; color: var(--primary-blue);">Older Posts →</a>
+                {{ end }}
+            </div>
+            {{ end }}
+        </div>
+
+        <div class="tag-cloud-section">
+            <h4 style="margin-bottom: 15px; display:flex; align-items:center; gap:8px;">
+                <i data-lucide="tag" width="14"></i> Explore by Tags
+            </h4>
+            <div class="tag-cloud-list">
+                {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+                <a href="{{ "/tags/" | relLangURL }}{{ $name | urlize }}" class="tag-cloud-item">
+                    {{ $name | title }} ({{ $taxonomy.Count }})
+                </a>
+                {{ end }}
+            </div>
         </div>
     </div>
 
     {{ partial "footer.html" . }}
-
+    <script src="{{ "js/search.js" | relURL }}"></script>
 </body>
 </html>

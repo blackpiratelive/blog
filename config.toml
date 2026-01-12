@@ -6,6 +6,7 @@ theme = 'min-v'
 
 [params]
   author = 'Sudip M.'
+  paginate = 15
   subtitle = "Notes, thoughts, and code snippets from my daily life."
   description = "A place for me to write down my thoughts, rants, and reviews."
   tags = 'tags'
@@ -15,6 +16,9 @@ theme = 'min-v'
   quality = 25
   resampleFilter = 'Box'
 
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
 
 [security]
   [security.funcs]
