@@ -661,3 +661,59 @@ figure figcaption {
     font-weight: bold;
 }
 
+/* --- MOBILE OPTIMIZATION --- */
+@media (max-width: 600px) {
+    
+    /* 1. Reduce outer edge spacing */
+    body {
+        padding: 8px; /* Was 20px. Gains 24px width. */
+    }
+
+    /* 2. Compact the white card container */
+    .detail-container {
+        padding: 15px 12px; /* Was 20px. Gains 16px width. */
+    }
+
+    /* 3. Make the Title smaller so it doesn't dominate */
+    .detail-title {
+        font-size: 24px; /* Was 32px */
+        line-height: 1.3;
+    }
+
+    /* 4. Fix List Indentation */
+    /* Prevent bullets from being pushed off-screen or taking too much space */
+    .single-content ul, .single-content ol {
+        margin-left: 0;
+        padding-left: 20px; 
+    }
+
+    /* 5. Edge-to-Edge Code Blocks */
+    /* This makes code blocks stretch to the edges of the card */
+    .single-content pre {
+        margin-left: -12px;  /* Pulls block left to touch container edge */
+        margin-right: -12px; /* Pulls block right to touch container edge */
+        width: calc(100% + 24px); /* Forces full width */
+        border-radius: 0;    /* Remove rounded corners on mobile */
+        border-left: none;
+        border-right: none;
+    }
+
+    /* 6. Adjust Search & Stats for mobile */
+    .search-wrapper {
+        margin-bottom: 15px;
+    }
+    
+    .stats-grid {
+        flex-direction: column; /* Stack stats vertically on very small screens */
+        gap: 15px;
+    }
+    .stat-item {
+        border: none !important; /* Remove the vertical dividers */
+        border-bottom: 1px solid #eee !important; /* Add horizontal dividers */
+        padding-bottom: 10px;
+    }
+    .stat-item:last-child {
+        border-bottom: none !important;
+    }
+}
+
