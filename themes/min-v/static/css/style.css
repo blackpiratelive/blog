@@ -300,3 +300,114 @@ footer {
     border: 1px solid #ccc;
 }
 .tag-cloud-item:hover { background: #ddd; }
+/* --- NEW SEARCH STYLES --- */
+.search-wrapper {
+    position: relative;
+    margin-bottom: 25px;
+    border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    background: #fff;
+    border-radius: 4px; /* Optional rounded corners */
+}
+.search-input {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    font-family: inherit;
+}
+
+/* --- NEW STATS STYLES --- */
+.stats-box {
+    background-color: var(--highlight-yellow); /* Matches the original quote box color */
+    border: 1px solid var(--border-color);
+    padding: 15px;
+    margin-bottom: 25px;
+}
+.stats-header {
+    font-weight: bold;
+    border-bottom: 1px dotted #999;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.stats-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.stat-item {
+    flex: 1;
+    text-align: center;
+    padding: 0 10px;
+}
+.stat-val {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--primary-blue);
+    line-height: 1.2;
+}
+.stat-lbl {
+    font-size: 10px;
+    text-transform: uppercase;
+    color: #666;
+    margin-bottom: 2px;
+}
+
+/* --- PAGINATION STYLES --- */
+.pagination {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    text-align: center;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+}
+.page-link {
+    text-decoration: none;
+    color: var(--primary-blue);
+    font-weight: bold;
+    border: 1px solid transparent;
+    padding: 5px 10px;
+}
+.page-link:hover {
+    background-color: #f0f0f0;
+    border-radius: 4px;
+}
+
+/* --- TAG CLOUD STYLES --- */
+.tag-cloud-section {
+    margin-top: 50px;
+    border-top: 2px solid #000;
+    padding-top: 25px;
+}
+.tag-cloud-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.tag-cloud-item {
+    text-decoration: none;
+    color: #333;
+    background: #f4f4f4;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    border: 1px solid #ddd;
+    transition: all 0.2s;
+}
+.tag-cloud-item:hover {
+    background: #e0e0e0;
+    border-color: #999;
+}
